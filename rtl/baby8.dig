@@ -263,6 +263,24 @@
       </elementAttributes>
       <pos x="1580" y="320"/>
     </visualElement>
+    <visualElement>
+      <elementName>Splitter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Input Splitting</string>
+          <string>16</string>
+        </entry>
+        <entry>
+          <string>mirror</string>
+          <boolean>true</boolean>
+        </entry>
+        <entry>
+          <string>Output Splitting</string>
+          <string>12,4</string>
+        </entry>
+      </elementAttributes>
+      <pos x="1280" y="200"/>
+    </visualElement>
   </visualElements>
   <wires>
     <wire>
@@ -312,6 +330,14 @@
     <wire>
       <p1 x="1080" y="200"/>
       <p2 x="1160" y="200"/>
+    </wire>
+    <wire>
+      <p1 x="1220" y="200"/>
+      <p2 x="1280" y="200"/>
+    </wire>
+    <wire>
+      <p1 x="1300" y="200"/>
+      <p2 x="1360" y="200"/>
     </wire>
     <wire>
       <p1 x="900" y="460"/>
@@ -478,6 +504,10 @@
       <p2 x="1180" y="120"/>
     </wire>
     <wire>
+      <p1 x="1360" y="120"/>
+      <p2 x="1420" y="120"/>
+    </wire>
+    <wire>
       <p1 x="900" y="380"/>
       <p2 x="980" y="380"/>
     </wire>
@@ -568,6 +598,10 @@
     <wire>
       <p1 x="560" y="200"/>
       <p2 x="560" y="700"/>
+    </wire>
+    <wire>
+      <p1 x="1360" y="120"/>
+      <p2 x="1360" y="200"/>
     </wire>
     <wire>
       <p1 x="660" y="460"/>
