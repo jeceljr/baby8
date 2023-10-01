@@ -1,4 +1,4 @@
-#Register Transfer Level
+# Register Transfer Level
 
 RTL is a design style where a single clock
 signal goes to all registers in the circuit
@@ -17,7 +17,7 @@ the registers.
 The baby8 processor was developed using the
 Digital simulation tool written in Java.
 
-##baby8_datapath.dig
+## baby8_datapath.dig
 
 This defines the logic needed to execute instructions,
 including the registers and an ALU (arithmetic and

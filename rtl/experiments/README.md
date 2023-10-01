@@ -10,7 +10,10 @@ blocks from Verilog to the following FPGAs:
 - Intel Cyclone V
 - AMD/Xilinx XC7 series
 
-# RISC-V cores
+Note that some cores include the main memories
+while most don't.
+
+## RISC-V cores
 
 - darkriscv
 - glacial
@@ -18,7 +21,10 @@ blocks from Verilog to the following FPGAs:
 - picorv32
 - riscv_simple (RV32I, RV32IM), (Unicycle, Multicycle, Pipeline)
 
-# Other cores
+The numbers for riscv_simple shouldn't be trusted as Yosys
+seems to be completely optimizing one of the memories away.
+
+## Other cores
 
 - 6502 and ukp from Nestang
 - MCPU
