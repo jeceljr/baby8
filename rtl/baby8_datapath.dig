@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <circuit>
   <version>1</version>
-  <attributes/>
+  <attributes>
+    <entry>
+      <string>Label</string>
+      <string>datapath</string>
+    </entry>
+    <entry>
+      <string>Description</string>
+      <string>This simple circuit can do all the operations needed to execute Baby8 instructions</string>
+    </entry>
+    <entry>
+      <string>Width</string>
+      <int>8</int>
+    </entry>
+  </attributes>
   <visualElements>
     <visualElement>
       <elementName>In</elementName>
       <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>all registers store their inputs (when enabled) at the rising edge of this signal</string>
+        </entry>
         <entry>
           <string>Label</string>
           <string>clock</string>
@@ -231,6 +248,10 @@
       <elementName>In</elementName>
       <elementAttributes>
         <entry>
+          <string>Description</string>
+          <string>input port at address 0</string>
+        </entry>
+        <entry>
           <string>Label</string>
           <string>in0</string>
         </entry>
@@ -245,6 +266,10 @@
       <elementName>In</elementName>
       <elementAttributes>
         <entry>
+          <string>Description</string>
+          <string>input port at address 1</string>
+        </entry>
+        <entry>
           <string>Label</string>
           <string>in1</string>
         </entry>
@@ -258,6 +283,10 @@
     <visualElement>
       <elementName>Out</elementName>
       <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>result of the addition</string>
+        </entry>
         <entry>
           <string>Label</string>
           <string>R</string>
@@ -391,6 +420,10 @@
       <elementName>In</elementName>
       <elementAttributes>
         <entry>
+          <string>Description</string>
+          <string>allow register selected by adW to receive the value from R</string>
+        </entry>
+        <entry>
           <string>Label</string>
           <string>wReg</string>
         </entry>
@@ -400,6 +433,10 @@
     <visualElement>
       <elementName>In</elementName>
       <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>register to be written</string>
+        </entry>
         <entry>
           <string>Label</string>
           <string>wAd</string>
@@ -415,6 +452,10 @@
       <elementName>In</elementName>
       <elementAttributes>
         <entry>
+          <string>Description</string>
+          <string>register to use for A</string>
+        </entry>
+        <entry>
           <string>Label</string>
           <string>aAd</string>
         </entry>
@@ -428,6 +469,10 @@
     <visualElement>
       <elementName>In</elementName>
       <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>register to use for B</string>
+        </entry>
         <entry>
           <string>Label</string>
           <string>bAd</string>
@@ -443,6 +488,10 @@
       <elementName>Out</elementName>
       <elementAttributes>
         <entry>
+          <string>Description</string>
+          <string>result of the addition in the previous cycle - used as data to be written to main memory</string>
+        </entry>
+        <entry>
           <string>Label</string>
           <string>dOut</string>
         </entry>
@@ -456,6 +505,10 @@
     <visualElement>
       <elementName>In</elementName>
       <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>value read from main memory</string>
+        </entry>
         <entry>
           <string>Label</string>
           <string>dIn</string>
@@ -471,6 +524,10 @@
       <elementName>Out</elementName>
       <elementAttributes>
         <entry>
+          <string>Description</string>
+          <string>address for main memory</string>
+        </entry>
+        <entry>
           <string>Label</string>
           <string>address</string>
         </entry>
@@ -484,6 +541,10 @@
     <visualElement>
       <elementName>In</elementName>
       <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>select register, memory or input port for B</string>
+        </entry>
         <entry>
           <string>Label</string>
           <string>bSel</string>
@@ -499,6 +560,10 @@
       <elementName>In</elementName>
       <elementAttributes>
         <entry>
+          <string>Description</string>
+          <string>select logical operation between A and B or just use B</string>
+        </entry>
+        <entry>
           <string>Label</string>
           <string>logSel</string>
         </entry>
@@ -512,6 +577,10 @@
     <visualElement>
       <elementName>In</elementName>
       <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>select A, inverted A or a constant to be added</string>
+        </entry>
         <entry>
           <string>Label</string>
           <string>aSel</string>
@@ -527,6 +596,10 @@
       <elementName>Out</elementName>
       <elementAttributes>
         <entry>
+          <string>Description</string>
+          <string>addition had zero result</string>
+        </entry>
+        <entry>
           <string>Label</string>
           <string>Z</string>
         </entry>
@@ -536,6 +609,10 @@
     <visualElement>
       <elementName>Out</elementName>
       <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>carry out</string>
+        </entry>
         <entry>
           <string>Label</string>
           <string>C</string>
@@ -547,6 +624,10 @@
       <elementName>Out</elementName>
       <elementAttributes>
         <entry>
+          <string>Description</string>
+          <string>addition had negative result</string>
+        </entry>
+        <entry>
           <string>Label</string>
           <string>N</string>
         </entry>
@@ -556,6 +637,10 @@
     <visualElement>
       <elementName>In</elementName>
       <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>carry in</string>
+        </entry>
         <entry>
           <string>Label</string>
           <string>Cin</string>
@@ -567,6 +652,10 @@
       <elementName>In</elementName>
       <elementAttributes>
         <entry>
+          <string>Description</string>
+          <string>replacement for A7</string>
+        </entry>
+        <entry>
           <string>Label</string>
           <string>A7</string>
         </entry>
@@ -576,6 +665,10 @@
     <visualElement>
       <elementName>In</elementName>
       <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>replacement for A0</string>
+        </entry>
         <entry>
           <string>Label</string>
           <string>A0</string>
@@ -587,6 +680,10 @@
       <elementName>In</elementName>
       <elementAttributes>
         <entry>
+          <string>Description</string>
+          <string>use original A7 or replacement</string>
+        </entry>
+        <entry>
           <string>Label</string>
           <string>a7S</string>
         </entry>
@@ -597,12 +694,16 @@
       <elementName>In</elementName>
       <elementAttributes>
         <entry>
-          <string>Label</string>
-          <string>a0S</string>
+          <string>Description</string>
+          <string>use original A0 or replacement</string>
         </entry>
         <entry>
           <string>rotation</string>
           <rotation rotation="2"/>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>a0S</string>
         </entry>
       </elementAttributes>
       <pos x="1120" y="280"/>
@@ -669,6 +770,10 @@
     <visualElement>
       <elementName>Out</elementName>
       <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>addition overflowed</string>
+        </entry>
         <entry>
           <string>Label</string>
           <string>V</string>
