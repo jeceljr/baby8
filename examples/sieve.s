@@ -32,21 +32,21 @@
 for/gen:
 	Y = (var+1)
 	Y -= end>>8     ; compare high bits
-	> ? ===> endfor/gen
+	> ? ~~~ endfor/gen
 	!Z ? ===> mainfor/gen
 	Y = var
 	Y -= end&255    ; compare low bits if high bits were equal
-	> ? ===> endfor/gen
+	> ? ~~~ endfor/gen
 mainfor/gen:
 	body
 	var += #1;
 	!Z ? ===> for/gen
 	(var+1) += #1   ; low byte turned zero, increment high byte
-	===> for/gen
+	~~~ for/gen
 endfor/gen:
 	'
 
-	===> sieve    ; start of zero page is first instruction
+	~~~ sieve    ; start of zero page is first instruction
 	size: 8190
 	true: 1
 	false: 0
@@ -87,17 +87,17 @@ text2:
 sieve:
 	W = #text1&255
 	X = #text1>>8
-	===> printText*
+	~~~ printText [
 	count = #0
 	(count+1) = #0
 	for i 0 size '
 		setFP i
-		[fip] = #true
+		*fip = #true
 	' .   ; note the current PC as the gen argument
 	for i 0 size '
 		setFP i
-		Y = [fip]
-		Z ? ===> L18
+		Y = *fip
+		Z ? ~~~ L18
 		mov16 prime i
 		add16 prime i
 		prime += #3
@@ -108,14 +108,14 @@ sieve:
 while:
 			Y = (k+1)
 			Y -= #size>>8  ; compare high bytes
-			> ? ===> endwhile
-			!Z ? ===> whilebody
+			> ? ~~~ endwhile
+			!Z ? ~~~ whilebody
 			Y = k
 			Y -= #size&255
-			> ? ===> endwhile
+			> ? ~~~ endwhile
 whilebody:
 			setFP k
-			[fip] = #false
+			*fip = #false
 			add16 k prime
 endwhile:
 		count += #1
@@ -124,15 +124,17 @@ L18:
 	' .
 	W = count
 	X = count+1
-	===> printNum*
+	~~~ printNum [
 	W = #text2&255
 	X = #text2>>8
-	===> printText*
+	~~~ printText [
 halt:
-	===> halt
+	~~~ halt
 
 printText:
+	]
 printNum:
+	]
 
 flags:
 	%.+size+1
