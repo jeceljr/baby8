@@ -74,7 +74,7 @@ text2:
 	(za+1) += (zb+1)
 	'
 
-	\mov16 za ab '
+	\mov16 za zb '
 	za = zb
 	(za+1) = (zb+1)
 	'
