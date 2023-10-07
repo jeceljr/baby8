@@ -38,3 +38,12 @@ seems to be completely optimizing one of the memories away.
 - logic functions in ALU
 - complete ALU
 - complete datapath
+
+## Digital blocks test
+
+- two port registers
+- block ram
+
+Note that the Digital versions use clock circuits and blocks
+that can't be exported to Verilog, so to get the .v versions
+these were replaced with input pins
