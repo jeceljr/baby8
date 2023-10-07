@@ -32,3 +32,9 @@ seems to be completely optimizing one of the memories away.
 - MiniCPU_SerPCU + MiniCPU_SerALU
 - ZPU avalanche
 - Cray 1
+
+## building blocks for Baby 8
+
+- logic functions in ALU
+- complete ALU
+- complete datapath
