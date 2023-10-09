@@ -25,32 +25,12 @@
 	; to make the program prettier, let us have a FOR loop
 	; step is always 1 and both start and end are constants
 
-	\FOR var start end body gen '
-	var = #start&255   ; low 8 bits
-	var+1 = #start>>8  ; high 8 bits
-	>>>> for/gen
-for/gen:
-	Y = (var+1)
-	Y -= end>>8     ; compare high bits
-	> ? >>>> endfor/gen
-	!Z ? >>>> mainfor/gen
-	Y = var
-	Y -= end&255    ; compare low bits if high bits were equal
-	> ? >>>> endfor/gen
-mainfor/gen:
-	body
-	var += #1;
-	!Z ? >>>> for/gen
-	(var+1) += #1   ; low byte turned zero, increment high byte
-	>>>> for/gen
-endfor/gen:
-	'
 
 	>>>> sieve    ; start of zero page is first instruction
 	size: 8190
 	true: 1
 	false: 0
-	% ((.+1)/2)*2 ; pointers must be at even address
+	% 16 ; skip internal register addresses
 fip:
 	##0
 fp:
@@ -63,26 +43,12 @@ i:
 	##0
 k:
 	##0
+tp:
+    ##0
 text1:
 	"Only 1 iteration", #0
 text2:
 	" PRIMES", #0
-
-	\add16 za zb '
-	za += zb
-	C ? (za+1) += #1   ; carry to high byte
-	(za+1) += (zb+1)
-	'
-
-	\mov16 za zb '
-	za = zb
-	(za+1) = (zb+1)
-	'
-
-	\setFP var '
-	mov16 fip fp     ; start of array
-	add16 fip var    ; fip now points to element
-	'
 
 sieve:
 	W = #text1&255
@@ -90,11 +56,11 @@ sieve:
 	>>>> printText [
 	count = #0
 	(count+1) = #0
-	for i 0 size '
+	for i 0 size [
 		setFP i
 		*fip = #true
-	' .   ; note the current PC as the gen argument
-	for i 0 size '
+	] .   ; note the current PC as the gen argument
+	for i 0 size [
 		setFP i
 		Y = *fip
 		Z ? >>>> L18
@@ -121,21 +87,69 @@ endwhile:
 		count += #1
 		C ? (count+1) += #1
 L18:
-	' .
+	] .
 	W = count
 	X = count+1
-	>>>> printNum [
+	>>>>$ printNum
 	W = #text2&255
 	X = #text2>>8
-	>>>> printText [
+	>>>>$ printText
 halt:
 	>>>> halt
 
 printText:
-	]
+    tp = X
+    (tp+1) = W  ; point to start of text
+ptloop:
+    W = *tp++
+	Z ? <<<<  ; nul is end of text
+	>>>>$ printChar
+	>>>> ptloop
+	
 printNum:
-	]
+	<<<<
+	
+printChar:
+    <<<<
 
 flags:
 	%.+size+1
 endMemory:
+
+	\FOR var start end body gen [
+	var = #start&255   ; low 8 bits
+	var+1 = #start>>8  ; high 8 bits
+	>>>> for/gen
+for/gen:
+	Y = (var+1)
+	Y -= end>>8     ; compare high bits
+	> ? >>>> endfor/gen
+	!Z ? >>>> mainfor/gen
+	Y = var
+	Y -= end&255    ; compare low bits if high bits were equal
+	> ? >>>> endfor/gen
+mainfor/gen:
+	body
+	var += #1;
+	!Z ? >>>> for/gen
+	(var+1) += #1   ; low byte turned zero, increment high byte
+	>>>> for/gen
+endfor/gen:
+	]
+
+	\add16 za zb [
+	za += zb
+	C ? (za+1) += #1   ; carry to high byte
+	(za+1) += (zb+1)
+	]
+
+	\mov16 za zb [
+	za = zb
+	(za+1) = (zb+1)
+	]
+
+	\setFP var [
+	mov16 fip fp     ; start of array
+	add16 fip var    ; fip now points to element
+	]
+
