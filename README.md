@@ -25,3 +25,15 @@ are features like post-increment addressing that are no
 faster than doing various instructions in a RISC, but they
 do make the programs more compact and might allow fewer
 block RAMs to be used.
+
+## Files
+
+The **doc** directory has some slides with details about the
+processor. **examples** has programs written in assembly
+language. **rtl** has the actual hardware design with the
+**.dig** files being the sources created in the [Digital
+simulator/editor](https://github.com/hneemann/Digital)
+which automatically generates the **.v**
+Verilog files for synthesis for FPGAs as well as the **.svg**
+files to be included in the **README.md** files so you can
+see the circuits without the tool.
