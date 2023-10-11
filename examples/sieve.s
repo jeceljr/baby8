@@ -63,22 +63,27 @@ sieve:
 	for i 0 size [
 		setFP i
 		Y = *fip
-		Z ? >>>> L18
+		Z ?
+			>>>> L18
 		mov16 prime i
 		add16 prime i
 		prime += #3
-		C ? (prime+1) += #1
+		C ?
+			(prime+1) += #1
 		k = prime
 		(k+1) = (prime+1)
 		add16 k i
 while:
 			Y = (k+1)
 			Y -= #size>>8  ; compare high bytes
-			> ? >>>> endwhile
-			!Z ? >>>> whilebody
+			> ?
+				>>>> endwhile
+			!Z ?
+				>>>> whilebody
 			Y = k
 			Y -= #size&255
-			> ? >>>> endwhile
+			> ?
+				>>>> endwhile
 whilebody:
 			setFP k
 			*fip = #false
@@ -104,7 +109,8 @@ printText:
 	(tp+1) = W  ; point to start of text
 ptloop:
 	W = *tp++
-	Z ? <<<<  ; nul is end of text
+	Z ?
+		<<<<  ; nul is end of text
 	outTerminal = W
 	>>>>$ printChar
 	>>>> ptloop
@@ -114,12 +120,15 @@ ptloop:
 moreDigits/gen:
 		Y = (tp+1)
 		Y -= #factor>>8
-		< ? >>>> endConv/gen
+		< ?
+			>>>> endConv/gen
 		(tp+1) = Y
-		!Z ? >>>> subConv/gen
+		!Z ?
+			>>>> subConv/gen
 		Y = tp
 		Y -= #factor&255
-		< ? >>>> endConv/gen
+		< ?
+			>>>> endConv/gen
 subConv/gen:
 		tp -= #factor&255
 		W += #1
@@ -158,15 +167,19 @@ endMemory:
 for/gen:
 		Y = (var+1)
 		Y -= end>>8     ; compare high bits
-		> ? >>>> endfor/gen
-		!Z ? >>>> mainfor/gen
+		> ?
+			>>>> endfor/gen
+		!Z ?
+			>>>> mainfor/gen
 		Y = var
 		Y -= end&255    ; compare low bits if high bits were equal
-		> ? >>>> endfor/gen
+		> ?
+			>>>> endfor/gen
 mainfor/gen:
 		body
 		var += #1;
-		!Z ? >>>> for/gen
+		!Z ?
+			>>>> for/gen
 		(var+1) += #1   ; low byte turned zero, increment high byte
 		>>>> for/gen
 endfor/gen:
@@ -174,7 +187,8 @@ endfor/gen:
 
 	\add16 za zb [
 		za += zb
-		C ? (za+1) += #1   ; carry to high byte
+		C ?
+			(za+1) += #1   ; carry to high byte
 		(za+1) += (zb+1)
 	]
 
