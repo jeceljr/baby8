@@ -1,0 +1,19 @@
+0{famous Sieve of Eratosthenes benchmark}
+0{calculates primes}
+':F
+"Only 1 iteration"10:$13:$
+0:C
+8191{1!(F,(#@))} 0{clear array}
+8191{8192-(#@):I 0{FOR loop}
+     1-(F,I@){   0{IF}
+         I+I+3:P
+         I+P:K
+         1{K>8191{0!(#,1@)} 0{WHILE}
+             0!(F,K)
+             K+P:K
+             2!(#@)
+         }
+         C+1:C
+     }
+}
+C:?" PRIMES"10:$13:$
