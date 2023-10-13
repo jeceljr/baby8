@@ -19,3 +19,9 @@ there on the simulated terminal window.
 A few macros are defined (FOR, add16, mov16, setFP and convBase) to make
 the program more readable. Though this hides the awkwardness of handling
 16 bit values the code still gets expanded in the actual output.
+
+## BLA
+
+Baby 8 LAnguage, in its down subdirectory, is a very reduced
+programming language capable of running on Baby 8 connected to a
+terminal.
