@@ -48,12 +48,16 @@ used for defining labels. Note that \N is the same thing as .+5:N so like , and
 Control flow is normally structured by placing code between { and } where { is
 like a postfix operator that will push the expression to its left and the
 current program counter to a nesting stack. If the expression is 0 then
-execution skips to after the corresponding }. The loop value at the top of the
-nesting stack can be accessed via the # variable and assigning 0 to it also
+execution skips to after the corresponding }. The # variable points to the
+top of the nesting stack, so the current loop count can be accessed as
+ #@ and the count in the next leve of loop as #,1@ (at most 16 levels are
+allowed, so #,16@ will actually get the address after the opening { ).
+Assigning 0 to the current loop count
 causes execution to skip to after the closing } and the nesting stack to be
 popped, which allows premature exit from a loop. If the } is encountered
-normally, then # is decremented and if not 0 the program counter is set to the
-saved value, looping back to just after the corresponding {.
+normally, then the loop count is decremented and if not 0 the program counter is set to the
+saved value, looping back to just after the corresponding {. To exit from
+three levels of {...} you would do something like 0!#0!(#,1)0!(#,2)
 
 Note that since comparison operators return either 0 or 1, placing such an
 expression before a {..} is an IF. To have an ELSE part the expression should be
@@ -61,12 +65,6 @@ saved, like in
 
    X>25:C C{ then part } 1-C{ else part }
    
-In a similar way, the # only allows access to the innermost loop count in nested
-loops but it is easy to save outer counts in variables so the inner loops can
-use them.
-
-   192 {192-#:Y 320 {320-#:X 'some calculation with X and Y'!(Y*320+X+F) } }
-
 There is no syntax for comments, but since any characters between 0{ and } will
 be ignored (except for checking that nested { } pairs are balanced) they can
 be used as comments though with both a space and run time cost.
