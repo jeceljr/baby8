@@ -9,8 +9,11 @@ RPN like in Forth inspired languages.
 ## Language
 
 All variables are global and have a single character as their names. Like VTL-2,
-certain characters (like # or ?) have side effects when read or when assigned a
-value. All variables hold 16 bit values. Spaces, tabs and newlines are simply
+certain characters have side effects when read or when assigned a
+value. Even the characters that indicate operators can be used as valid variable
+names if they appear where a variable is expected. All variables hold 16 bit values.
+
+Spaces, tabs and newlines are simply
 ignored and with single letter variables wouldn't make a difference. They can
 be used for formatting.
 
@@ -21,15 +24,31 @@ A character just evaluates to the value of the variable it names.
 
 A sequence of digits 0 to 9 are the decimal represenation of a number.
 
-The infix operators are +-*/<=>!,&|^ representing addition, subtraction,
-multiplication, division, less than comparison, equal comparison, greater than
-comparison, store to address, convert byte to word index, bitwise AND,
-bitwise OR and bitwise XOR. The comparisons return a 1 when their condition is
-true and 0 when false. The , operation will multiply the right expression by two
+### Inifix Operators
+
+Infix operators will combine the value of the expression to its left with the
+operand to its right, which must either be a simple variable or a more
+complex expression in parenthesis.
+
+- \+ is addition
+- \- is subtraction
+- \* is multiplication
+- / is division
+- < is less than comparison
+- = is equal comparison
+- \> is greater than comparison
+- \! is store to address
+- , is convert byte to word index
+- & is bitwise AND
+- | is bitwise OR
+- ^ is bitwise XOR
+
+The comparisons return a 1 when their condition is
+true and 0 when false.
+
+The , operation will multiply the right expression by two
 and add it to the left expression, so that X,I is the same as X+(2*I) but is
 nicer to read when used with ! and @.
-
-The special variable % has the remainder of the last division operation.
 
 The assignment, : , is also an infix operator but is special in that it doesn't
 evaluate its right expression but treats it as a variable name of where to store
@@ -38,26 +57,50 @@ a result. If it is known that variable N is stored in memory location 140 then
 45:N could be written as 45!140 instead. So it is there to make programs more
 readable instead of being strictly needed.
 
-The only postfix operator is @ which reads a value from the address to its left.
+### Prefix operator
 
 The only prefix operator is \ which stores the current value of the program
 counter in the variable whose name follows (it is like assignment). This is
-used for defining labels. Note that \N is the same thing as .+5:N so like , and
-: itself this is syntatic sugar instead of something fundamental.
+used for defining labels. Note that \N is the same thing as .+5:N so like , and :
+itself this is syntatic sugar instead of something fundamental.
+
+Though not quite a prefix operator, the " character will output all the characters
+that follow it until a second " is found. The ' character has the same functionality
+but will output characters until a second ' is found. This allows texts with these
+characters to be output:
+
+    "I don't know why he said "'"no".'
+
+### Postfix operators and Unstructured control flow
+
+- @ is load from address
+- . is a jump to the address
+- % is a call to the address storing the current program counter in ;
+- ? is a conditional break from current loop (see structured control flow)
+- \# will print the value as a decimal number
+- $ will print the value as a single ASCII character
+
+When used as variables, \# and $ will read a number or a single character from
+the terminal.
+
+When used as a variable . is the value of the current program counter.
+
+Since % saves the address of the next instruction in the ; special variable
+before jumping to the indicated address, a return from subroutine is just ;.
+if we only have one level of calls. For mode levels ; must be saved and then
+the return will be a jump to the saved value.
+
+### Structured control flow
 
 Control flow is normally structured by placing code between { and } where { is
 like a postfix operator that will push the expression to its left and the
 current program counter to a nesting stack. If the expression is 0 then
-execution skips to after the corresponding }. The # variable points to the
-top of the nesting stack, so the current loop count can be accessed as
- #@ and the count in the next leve of loop as #,1@ (at most 16 levels are
-allowed, so #,16@ will actually get the address after the opening { ).
-Assigning 0 to the current loop count
-causes execution to skip to after the closing } and the nesting stack to be
-popped, which allows premature exit from a loop. If the } is encountered
-normally, then the loop count is decremented and if not 0 the program counter is set to the
-saved value, looping back to just after the corresponding {. To exit from
-three levels of {...} you would do something like 0!#0!(#,1)0!(#,2)
+execution skips to after the corresponding } and pops the nesting stack.
+
+When } is encountered then the current loop count is decremented and if not
+zero then execution continues to right after the corresponding {. If the
+count has reached zero then the nesting stack is popped and execution
+continues after the }.
 
 Note that since comparison operators return either 0 or 1, placing such an
 expression before a {..} is an IF. To have an ELSE part the expression should be
@@ -69,19 +112,28 @@ There is no syntax for comments, but since any characters between 0{ and } will
 be ignored (except for checking that nested { } pairs are balanced) they can
 be used as comments though with both a space and run time cost.
 
-Two other special variables allow non structed control flow. The . is the
-current program counter and assigning to it will make execution jump to the
-new location while saving the current value (pointing after the .) in ; to
-allow one level of subroutine calls. Return is just ;:. but it is possible
-to save ; at the start of a subroutine explicitly for more levels. Jumps to
-earlier locations are possible if where they are were saved previously in a
-variable using \ , though using this to exit loops will cause errors. Jumps
-to later locations are not practical.
+The ? operator will act as an extra { in that if the expression is 0 it will
+skip to after the corresponding } and pop the nesting stack.
 
-Like in VTL-2, i/o uses ? for formated printing and evaluated input, while $ is
-for single character reads and writes. In addition, characters between two "
-are output to the terminal when executed (no assignement is needed). So " is a
-bit like { but as a prefix instead of postfix operator.
+The \[ operator is equivalent to 1{ while the \] is similar to } but doesn't
+decrement the loop counter. If the loop counter has been set to zero by
+someone else it will pop the nesting stack and continue, otherwise it jumps
+back to the start of the loop. Note that for matching purposes { and [ are
+the same, as are } and ]. So x{..\] and \[...} are valid.
+
+The \_ variable points to the
+top of the nesting stack, so the current loop count can be accessed as
+ \_@ and the count in the next leve of loop as \_,1@ (at most 16 levels are
+allowed, so \_,16@ will actually get the address after the opening { ).
+
+While ? can be used to exit the current loop, it is possible to do something
+like:
+
+     0!(_,1)
+
+to clear the loop counter of the next level. When the nesting stack is popped
+there is an implied ? so that if the new loop counter is zero we skip to the
+} or ].
 
 ## Modes
 
@@ -91,12 +143,12 @@ to edit mode the program source takes up the whole heap (with a gap at the
 cursor position) so any values stored there are lost. The variables keep their
 values between executions.
 
-The ' special variable indicates the start of the heap in run mode. Any attempt
-to execute at ' or beyond will switch to edit mode, as will any error during
+The ~ special variable indicates the start of the heap in run mode. Any attempt
+to execute at ~ or beyond will switch to edit mode, as will any error during
 execution. In the case of an error the message will be inserted at the cursor
 location where the error happened and it will be selected, so a simple backspace
 or control-x will restore the program leaving the cursor at the error location.
-A program can force the switch to edit mode with ':. and the cursor will be at
+A program can force the switch to edit mode with ~. and the cursor will be at
 the end of the program.
 
 Supposing a pure text terminal, there is no way to indicate a cursor between two
@@ -116,7 +168,7 @@ navigate to the start of the program (a "home" key, if present) and insert a
 small fragment. For example, if we need to know what was the value of B when
 an error happened, we can insert this at the top of the program:
 
-   B:? ?':.
+   B? ?~.
    
 The space is not needed but was used to separate the interesting part from the
 the trick to skip the rest of the program. After B is printed on the screen, a
@@ -128,24 +180,3 @@ entering edit mode this does no harm.
 
 As mentioned earlier, this trick won't allow the heap to be inspected as it was
 destroyed when entering the edit mode after the error.
-
-## Operators and Special Variables
-
-In theory characters used for operators could also be used for variable names.
-For example, if we had a + variable then there would be no confusion in the
-expression N++ since we start parsing as a variable, switch to operator and then
-switch back to variable for the second +. But this just allows needlessly
-confusing programs and would make run time errors such as XY or ?' into syntax
-errors. So we will introduce the separation:
-
-operators: + - * / < = > ! , & | ^ @ : \ { } ( ) "
-
-digits: 0 1 2 3 4 5 6 7 8 9
-
-special variables: . ; # % ? $ '
-
-simple variables: A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
-                  a b c d e f g h i j k l m n o p q r s t u v w x y z
-                  ` _ [ ] ~
-
-In ASCII, the operators @\^{|} overlap in the range of simple variables.
