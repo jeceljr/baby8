@@ -87,7 +87,7 @@ When used as a variable . is the value of the current program counter.
 
 Since % saves the address of the next instruction in the ; special variable
 before jumping to the indicated address, a return from subroutine is just ;.
-if we only have one level of calls. For mode levels ; must be saved and then
+if we only have one level of calls. For more levels ; must be saved and then
 the return will be a jump to the saved value.
 
 ### Structured control flow
@@ -123,7 +123,7 @@ the same, as are } and ]. So x{..\] and \[...} are valid.
 
 The \_ variable points to the
 top of the nesting stack, so the current loop count can be accessed as
- \_@ and the count in the next leve of loop as \_,1@ (at most 16 levels are
+ \_@ and the count in the next level of loop as \_,1@ (at most 16 levels are
 allowed, so \_,16@ will actually get the address after the opening { ).
 
 While ? can be used to exit the current loop, it is possible to do something
@@ -168,15 +168,13 @@ navigate to the start of the program (a "home" key, if present) and insert a
 small fragment. For example, if we need to know what was the value of B when
 an error happened, we can insert this at the top of the program:
 
-   B? ?~.
+   B# $$~.
    
 The space is not needed but was used to separate the interesting part from the
 the trick to skip the rest of the program. After B is printed on the screen, a
-value is read so the computer pauses and the printed value can be read. After
-the user types anything (just a return, for example) a jump to the start of the
-heap will switch to edit mode. The expression is not correct in that nothing was
-done with the value the user typed, but as the evaluation stack is reset on
-entering edit mode this does no harm.
+character is read so the computer pauses and the printed value can be read. After
+the user types anything (just a return, for example) it is echoed and the jump
+to the start of the heap will switch to edit mode.
 
 As mentioned earlier, this trick won't allow the heap to be inspected as it was
 destroyed when entering the edit mode after the error.
