@@ -57,12 +57,17 @@ a result. If it is known that variable N is stored in memory location 140 then
 45:N could be written as 45!140 instead. So it is there to make programs more
 readable instead of being strictly needed.
 
+When used as a variable, / holds the remainder of the most recent division.
+
 ### Prefix operator
 
 The only prefix operator is \ which stores the current value of the program
 counter in the variable whose name follows (it is like assignment). This is
 used for defining labels. Note that \N is the same thing as .+5:N so like , and :
-itself this is syntatic sugar instead of something fundamental.
+itself this is syntatic sugar instead of something fundamental. But this is
+actually handled when switching from **edit** to **run** mode with a first pass
+that will look for \ characters and set the variables accordingly. When actually
+executing the \ will just skip the next character.
 
 Though not quite a prefix operator, the " character will output all the characters
 that follow it until a second " is found. The ' character has the same functionality
@@ -137,18 +142,18 @@ there is an implied ? so that if the new loop counter is zero we skip to the
 
 ## Modes
 
-The system is either in edit mode or in run mode. When switching to run mode,
+The system is either in **edit** mode or in **run** mode. When switching to **run** mode,
 execution always starts at the first character of the program. When switching
-to edit mode the program source takes up the whole heap (with a gap at the
+to **edit** mode the program source takes up the whole heap (with a gap at the
 cursor position) so any values stored there are lost. The variables keep their
 values between executions.
 
-The ~ special variable indicates the start of the heap in run mode. Any attempt
-to execute at ~ or beyond will switch to edit mode, as will any error during
+The ~ special variable indicates the start of the heap in **run** mode. Any attempt
+to execute at ~ or beyond will switch to **edit** mode, as will any error during
 execution. In the case of an error the message will be inserted at the cursor
 location where the error happened and it will be selected, so a simple backspace
 or control-x will restore the program leaving the cursor at the error location.
-A program can force the switch to edit mode with ~. and the cursor will be at
+A program can force the switch to **edit** mode with ~. and the cursor will be at
 the end of the program.
 
 Supposing a pure text terminal, there is no way to indicate a cursor between two
@@ -158,7 +163,7 @@ alt will select a sequence of characters and these will be inverted without
 blinking. control-x or control-c will move the selected text to after the
 program and the cursor will again be blinking between characters. control-v will
 insert a copy of the text after the program at the cursor location. This text
-"clipboard" is lost when run mode is entered.
+"clipboard" is lost when **run** mode is entered.
 
 Backspace is like control-x when a block is selected but will remove a single
 character to the left of the cursor when that is blinking.
@@ -174,7 +179,7 @@ The space is not needed but was used to separate the interesting part from the
 the trick to skip the rest of the program. After B is printed on the screen, a
 character is read so the computer pauses and the printed value can be read. After
 the user types anything (just a return, for example) it is echoed and the jump
-to the start of the heap will switch to edit mode.
+to the start of the heap will switch to **edit** mode.
 
 As mentioned earlier, this trick won't allow the heap to be inspected as it was
-destroyed when entering the edit mode after the error.
+destroyed when entering the **edit** mode after the error.
