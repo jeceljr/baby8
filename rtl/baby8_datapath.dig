@@ -3,12 +3,12 @@
   <version>1</version>
   <attributes>
     <entry>
-      <string>Label</string>
-      <string>datapath</string>
-    </entry>
-    <entry>
       <string>Description</string>
       <string>This simple circuit can do all the operations needed to execute Baby8 instructions</string>
+    </entry>
+    <entry>
+      <string>Label</string>
+      <string>datapath</string>
     </entry>
     <entry>
       <string>Width</string>
@@ -780,6 +780,78 @@
         </entry>
       </elementAttributes>
       <pos x="1120" y="660"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Rectangle</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>Address Modification</string>
+        </entry>
+        <entry>
+          <string>RectHeight</string>
+          <int>12</int>
+        </entry>
+        <entry>
+          <string>RectWidth</string>
+          <int>21</int>
+        </entry>
+      </elementAttributes>
+      <pos x="860" y="60"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Rectangle</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>Flags</string>
+        </entry>
+        <entry>
+          <string>RectHeight</string>
+          <int>19</int>
+        </entry>
+        <entry>
+          <string>RectWidth</string>
+          <int>23</int>
+        </entry>
+      </elementAttributes>
+      <pos x="880" y="340"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Rectangle</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>Logic</string>
+        </entry>
+        <entry>
+          <string>RectHeight</string>
+          <int>19</int>
+        </entry>
+        <entry>
+          <string>RectWidth</string>
+          <int>15</int>
+        </entry>
+      </elementAttributes>
+      <pos x="580" y="340"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Rectangle</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>Arithmetic and Logic Unit</string>
+        </entry>
+        <entry>
+          <string>RectHeight</string>
+          <int>26</int>
+        </entry>
+        <entry>
+          <string>RectWidth</string>
+          <int>43</int>
+        </entry>
+      </elementAttributes>
+      <pos x="520" y="220"/>
     </visualElement>
   </visualElements>
   <wires>
