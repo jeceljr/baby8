@@ -11,29 +11,16 @@ blocks from Verilog to the following FPGAs:
 - Intel Cyclone V
 - AMD/Xilinx XC7 series
 
-Note that some cores include the main memories
-while most don't.
-
 ## RISC-V cores
 
 ### [darkriscv](https://github.com/darklife/darkriscv.git)
 ### [glacial](https://github.com/brouhaha/glacial.git)
 ### [serv](https://github.com/olofk/serv.git)
 ### [picorv32](https://github.com/cliffordwolf/picorv32.git)
-### [riscv_simple](https://github.com/LAICO-UnB/riscv-simple.git)
-
-- RV32I
-- RV32IM
-
-- Unicycle
-- Multicycle
-- Pipeline
-
-The numbers for riscv_simple shouldn't be trusted as Yosys
-seems to be completely optimizing one of the memories away.
 
 ## Other cores
 
+### femto8 and femto16 simple processors from [the 8bitworkshop](https://8bitworkshop.com/)
 ### 6502 and ukp from [Nestang](https://github.com/nand2mario/nestang.git)
 ### [MCPU](https://github.com/cpldcpu/MCPU.git)
 ### j0 from Gameduino (multiplier and no multiplier)
