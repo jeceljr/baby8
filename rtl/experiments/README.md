@@ -6,6 +6,7 @@ the results of using the Yosys tool to
 synthesize several processors and simple
 blocks from Verilog to the following FPGAs:
 
+- just NAND gates
 - Lattice ICE40
 - Gowin
 - Intel Cyclone V
@@ -17,6 +18,7 @@ blocks from Verilog to the following FPGAs:
 ### [glacial](https://github.com/brouhaha/glacial.git)
 ### [serv](https://github.com/olofk/serv.git)
 ### [picorv32](https://github.com/cliffordwolf/picorv32.git)
+### [VexRsicv](https://github.com/SpinalHDL/VexRiscv) as [translated to Verilog](https://github.com/efabless/caravel_mgmt_soc_gf180mcu/blob/main/verilog/rtl/VexRiscv_MinDebugCache.v) from SpinalHDL for use in the Caravel chip framework
 
 ## Other cores
 
@@ -24,9 +26,9 @@ blocks from Verilog to the following FPGAs:
 ### 6502 and ukp from [Nestang](https://github.com/nand2mario/nestang.git)
 ### [MCPU](https://github.com/cpldcpu/MCPU.git)
 ### j0 from Gameduino (multiplier and no multiplier)
-### [MiniCPU](https://github.com/MorrisMA/MiniCPU-S.git)_SerPCU + MiniCPU_SerALU
 ### [ZPU avalanche](https://github.com/sergev/zpu-avalanche.git)
 ### Cray 1
+### [MiniCPU](https://github.com/MorrisMA/MiniCPU-S.git)_SerPCU + MiniCPU_SerALU
 
 ## building blocks for Baby 8
 
