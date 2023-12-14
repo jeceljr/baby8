@@ -20,6 +20,11 @@ A few macros are defined (FOR, add16, mov16, setFP and convBase) to make
 the program more readable. Though this hides the awkwardness of handling
 16 bit values the code still gets expanded in the actual output.
 
+## test_asm_order.s
+
+This should translate to opcodes 00 to FF (hex) in order, with extra
+00 bytes for instructions with 2 or 3 bytes.
+
 ## BLA
 
 Baby 8 LAnguage, in its down subdirectory, is a very reduced
