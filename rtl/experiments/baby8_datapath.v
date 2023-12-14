@@ -29,25 +29,6 @@ module DIG_RegisterFile
     end
 endmodule
 
-module DIG_Add
-#(
-    parameter Bits = 1
-)
-(
-    input [(Bits-1):0] a,
-    input [(Bits-1):0] b,
-    input c_i,
-    output [(Bits - 1):0] s,
-    output c_o
-);
-   wire [Bits:0] temp;
-
-   assign temp = a + b + c_i;
-   assign s = temp [(Bits-1):0];
-   assign c_o = temp[Bits];
-endmodule
-
-
 
 module Mux_4x1_NBits #(
     parameter Bits = 2
@@ -110,6 +91,112 @@ module Mux_2x1
     end
 endmodule
 
+module DIG_Add
+#(
+    parameter Bits = 1
+)
+(
+    input [(Bits-1):0] a,
+    input [(Bits-1):0] b,
+    input c_i,
+    output [(Bits - 1):0] s,
+    output c_o
+);
+   wire [Bits:0] temp;
+
+   assign temp = a + b + c_i;
+   assign s = temp [(Bits-1):0];
+   assign c_o = temp[Bits];
+endmodule
+
+
+
+// generates the flags based on the result and the signs of the operands
+module flags (
+  input [7:0] R, // output of the adder
+  input [7:0] A, // operando for the adder
+  input [7:0] B, // other operand for the adder
+  output Z, // addition had zero result
+  output N, // addition had negative result
+  output V // addition overflowed
+
+);
+  wire N_temp;
+  assign Z = ~ (R[0] | R[1] | R[2] | R[3] | R[4] | R[5] | R[6] | R[7]);
+  assign N_temp = R[7];
+  assign V = ((N_temp & ~ B[7] & ~ A[7]) | (~ N_temp & B[7] & A[7]));
+  assign N = N_temp;
+endmodule
+
+// This simple circuit can do all the operations needed to execute Baby8 instructions
+module baby8_alu (
+  input [1:0] logSel, // select logical operation between A and B or just use B
+  input [1:0] aSel, // select A, inverted A or a constant to be added
+  input Cin, // carry in
+  input [7:0] A, // second operand (order only matters for subtraction)
+  input [7:0] B, // first operand
+  output [7:0] R, // result of the addition
+  output C, // carry out
+  output Z, // indicates that the result is zero
+  output N, // indicates that the result is negative
+  output V // indicates an overflow, where the sign
+           // of the result is different from the signs
+           // of the operands
+
+);
+  wire [7:0] s0;
+  wire [7:0] s1;
+  wire [7:0] R_temp;
+  wire [7:0] s2;
+  wire [7:0] s3;
+  wire [7:0] s4;
+  wire [7:0] s5;
+  assign s3 = (A & B);
+  assign s4 = (A | B);
+  assign s5 = (A ^ B);
+  assign s2 = ~ A;
+  Mux_4x1_NBits #(
+    .Bits(8)
+  )
+  Mux_4x1_NBits_i0 (
+    .sel( aSel ),
+    .in_0( A ),
+    .in_1( s2 ),
+    .in_2( 8'b0 ),
+    .in_3( 8'b11111110 ),
+    .out( s0 )
+  );
+  Mux_4x1_NBits #(
+    .Bits(8)
+  )
+  Mux_4x1_NBits_i1 (
+    .sel( logSel ),
+    .in_0( s3 ),
+    .in_1( s4 ),
+    .in_2( s5 ),
+    .in_3( B ),
+    .out( s1 )
+  );
+  DIG_Add #(
+    .Bits(8)
+  )
+  DIG_Add_i2 (
+    .a( s0 ),
+    .b( s1 ),
+    .c_i( Cin ),
+    .s( R_temp ),
+    .c_o( C )
+  );
+  flags flags_i3 (
+    .R( R_temp ),
+    .A( s0 ),
+    .B( s1 ),
+    .Z( Z ),
+    .N( N ),
+    .V( V )
+  );
+  assign R = R_temp;
+endmodule
 
 // This simple circuit can do all the operations needed to execute Baby8 instructions
 module baby8_datapath (
@@ -123,41 +210,29 @@ module baby8_datapath (
   input [7:0] dIn, // value read from main memory
   input [1:0] bSel, // select register, memory or input port for B
   input [1:0] logSel, // select logical operation between A and B or just use B
-  input [1:0] aSel, // select A, inverted A or a constant to be added
   input Cin, // carry in
   input A7, // replacement for A7
   input A0, // replacement for A0
   input a7S, // use original A7 or replacement
   input a0S, // use original A0 or replacement
+  input [1:0] aSelf,
   output [7:0] R, // result of the addition
   output [7:0] dOut, // result of the addition in the previous cycle - used as data to be written to main memory
   output [15:0] address, // address for main memory
   output Z, // addition had zero result
-  output C, // carry out
-  output N, // addition had negative result
-  output V // addition overflowed
+  output V, // overflow - result has different sign from operands
+  output N, // negative result
+  output C // carry out
 
 );
   wire [7:0] R_temp;
   wire [7:0] s0;
   wire [7:0] s1;
   wire [7:0] s2;
-  wire [7:0] s3;
-  wire [7:0] s4;
-  wire [7:0] s5;
-  wire [7:0] s6;
-  wire [7:0] s7;
-  wire [7:0] s8;
-  wire [7:0] s9;
-  wire [7:0] s10;
-  wire [7:0] s11;
-  wire s12;
-  wire s13;
-  wire s14;
-  wire s15;
-  wire s16;
-  wire s17;
-  wire N_temp;
+  wire s3;
+  wire s4;
+  wire s5;
+  wire s6;
   // registers
   DIG_RegisterFile #(
     .Bits(8),
@@ -173,92 +248,56 @@ module baby8_datapath (
     .Da( s0 ),
     .Db( s1 )
   );
-  DIG_Add #(
-    .Bits(8)
-  )
-  DIG_Add_i1 (
-    .a( s2 ),
-    .b( s3 ),
-    .c_i( Cin ),
-    .s( s4 ),
-    .c_o( C )
-  );
   Mux_4x1_NBits #(
     .Bits(8)
   )
-  Mux_4x1_NBits_i2 (
-    .sel( aSel ),
-    .in_0( s0 ),
-    .in_1( s5 ),
-    .in_2( 8'b0 ),
-    .in_3( 8'b11111110 ),
-    .out( s6 )
-  );
-  Mux_4x1_NBits #(
-    .Bits(8)
-  )
-  Mux_4x1_NBits_i3 (
-    .sel( logSel ),
-    .in_0( s7 ),
-    .in_1( s8 ),
-    .in_2( s9 ),
-    .in_3( s10 ),
-    .out( s11 )
-  );
-  Mux_4x1_NBits #(
-    .Bits(8)
-  )
-  Mux_4x1_NBits_i4 (
+  Mux_4x1_NBits_i1 (
     .sel( bSel ),
     .in_0( s1 ),
     .in_1( dIn ),
     .in_2( in0 ),
     .in_3( in1 ),
-    .out( s10 )
+    .out( s2 )
   );
   // prevR
   DIG_Register_BUS #(
     .Bits(8)
   )
-  DIG_Register_BUS_i5 (
+  DIG_Register_BUS_i2 (
     .D( R_temp ),
     .C( clock ),
     .en( 1'b1 ),
     .Q( dOut )
   );
-  Mux_2x1 Mux_2x1_i6 (
+  Mux_2x1 Mux_2x1_i3 (
     .sel( a7S ),
-    .in_0( s12 ),
+    .in_0( s3 ),
     .in_1( A7 ),
-    .out( s13 )
+    .out( s4 )
   );
-  Mux_2x1 Mux_2x1_i7 (
+  Mux_2x1 Mux_2x1_i4 (
     .sel( a0S ),
-    .in_0( s14 ),
+    .in_0( s5 ),
     .in_1( A0 ),
-    .out( s15 )
+    .out( s6 )
   );
-  assign s7 = (s0 & s10);
-  assign s8 = (s0 | s10);
-  assign s9 = (s0 ^ s10);
-  assign s5 = ~ s0;
-  assign address[0] = s15;
+  baby8_alu baby8_alu_i5 (
+    .logSel( logSel ),
+    .aSel( aSelf ),
+    .Cin( Cin ),
+    .A( s0 ),
+    .B( s2 ),
+    .R( R_temp ),
+    .C( C ),
+    .Z( Z ),
+    .N( N ),
+    .V( V )
+  );
+  assign address[0] = s6;
   assign address[6:1] = s1[6:1];
-  assign address[7] = s13;
+  assign address[7] = s4;
   assign address[15:8] = s0;
-  assign s14 = s1[0];
-  assign s12 = s1[7];
-  assign s16 = s6[7];
-  assign s17 = s11[7];
-  assign N_temp = s4[7];
-  assign s2[6:0] = s6[6:0];
-  assign s2[7] = s16;
-  assign s3[6:0] = s11[6:0];
-  assign s3[7] = s17;
-  assign R_temp[6:0] = s4[6:0];
-  assign R_temp[7] = N_temp;
-  assign V = ((N_temp & ~ s16 & ~ s17) | (~ N_temp & s16 & s17));
-  assign Z = ~ (R_temp[0] | R_temp[1] | R_temp[2] | R_temp[3] | R_temp[4] | R_temp[5] | R_temp[6] | R_temp[7]);
+  assign s5 = s1[0];
+  assign s3 = s1[7];
   assign R = R_temp;
-  assign N = N_temp;
 endmodule

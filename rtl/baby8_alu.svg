@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewBox="-80 -80 240 220"
+   version="1.1"
+   id="svg588"
+   sodipodi:docname="baby8_alu.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <metadata
+     id="metadata592">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs590" />
+  <sodipodi:namedview
+     showgrid="true"
+     id="namedview543"
+     inkscape:zoom="3.4454545"
+     inkscape:cx="121.31079"
+     inkscape:cy="110.58341"
+     inkscape:window-width="1613"
+     inkscape:window-height="988"
+     inkscape:window-x="67"
+     inkscape:window-y="34"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg588">
+    <inkscape:grid
+       type="xygrid"
+       empspacing="4"
+       spacingx="5"
+       spacingy="5"
+       id="grid541" />
+  </sodipodi:namedview>
+  <path
+     style="opacity:1;fill:#f2f2b3;fill-opacity:1;stroke:#000000;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+     inkscape:transform-center-x="3.5797187"
+     inkscape:transform-center-y="-1.0705081"
+     d="M 90,25 V 75 L -5,115 V 60 L 15,45 -5,35 v -45 z"
+     id="path1429"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cccccccc" />
+  <g
+     id="g551"
+     transform="translate(-4.9340372,14.221636)">
+    <circle
+       id="pin:A"
+       cx="0"
+       cy="0"
+       r="3"
+       style="fill:#0000b2" />
+    <text
+       font-size="18"
+       x="4"
+       y="6"
+       id="text549"
+       style="font-size:18px;fill:#808080">A</text>
+  </g>
+  <text
+     id="label"
+     fill="#000000"
+     font-size="24"
+     text-anchor="middle"
+     x="40"
+     y="-20">Label</text>
+  <g
+     id="g556"
+     transform="translate(-4.3535619,61.240106)">
+    <circle
+       id="pin:B"
+       cx="0"
+       cy="20"
+       r="3"
+       style="fill:#0000b2" />
+    <text
+       font-size="18"
+       x="4"
+       y="26"
+       id="text554"
+       style="font-size:18px;fill:#808080">B</text>
+  </g>
+  <g
+     id="g561"
+     transform="translate(59.208444,48.469657)">
+    <circle
+       id="pin:logSel"
+       cx="0"
+       cy="40"
+       r="3"
+       style="fill:#0000b2" />
+    <text
+       font-size="18"
+       x="4"
+       y="46"
+       id="text559"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#808080">
+      <tspan
+         sodipodi:role="line"
+         id="tspan1425"
+         x="4"
+         y="46">logSel</tspan>
+    </text>
+  </g>
+  <g
+     id="g566"
+     transform="translate(-4.934037,37.440633)">
+    <circle
+       id="pin:Cin"
+       cx="0"
+       cy="60"
+       r="3"
+       style="fill:#0000b2" />
+    <text
+       font-size="18"
+       x="4"
+       y="66"
+       id="text564"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#808080">
+      <tspan
+         sodipodi:role="line"
+         id="tspan1423"
+         x="4"
+         y="66">Cin</tspan>
+    </text>
+  </g>
+  <g
+     id="g571"
+     transform="translate(9.6688862,46.699062)">
+    <circle
+       id="pin:R"
+       cx="80"
+       cy="0"
+       r="3"
+       style="fill:#b20000" />
+    <text
+       font-size="18"
+       x="76.820915"
+       y="5.7947712"
+       id="text569"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:end;writing-mode:lr-tb;text-anchor:end;fill:#808080">
+      <tspan
+         sodipodi:role="line"
+         id="tspan1413"
+         x="76.820915"
+         y="5.7947712">R</tspan>
+    </text>
+  </g>
+  <g
+     id="g576"
+     transform="translate(-18.710004,-4.7931899)">
+    <circle
+       id="pin:V"
+       cx="80"
+       cy="20"
+       r="3"
+       style="fill:#b20000" />
+    <text
+       font-size="18"
+       x="76"
+       y="26"
+       id="text574"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:end;writing-mode:lr-tb;text-anchor:end;fill:#808080">
+      <tspan
+         sodipodi:role="line"
+         id="tspan1417"
+         x="76"
+         y="26">V</tspan>
+    </text>
+  </g>
+  <g
+     id="g581"
+     transform="translate(-38.100075,-31.841113)">
+    <circle
+       id="pin:N"
+       cx="80"
+       cy="40"
+       r="3"
+       style="fill:#b20000" />
+    <text
+       font-size="18"
+       x="76"
+       y="46"
+       id="text579"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:end;writing-mode:lr-tb;text-anchor:end;fill:#808080">
+      <tspan
+         sodipodi:role="line"
+         id="tspan1419"
+         x="76"
+         y="46">N</tspan>
+    </text>
+  </g>
+  <g
+     id="g586"
+     transform="translate(-60.987583,-59.513266)">
+    <circle
+       id="pin:C"
+       cx="80"
+       cy="60"
+       r="3"
+       style="fill:#b20000" />
+    <text
+       font-size="18"
+       x="76"
+       y="66"
+       id="text584"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:end;writing-mode:lr-tb;text-anchor:end;fill:#808080">
+      <tspan
+         sodipodi:role="line"
+         id="tspan1421"
+         x="76"
+         y="66">C</tspan>
+    </text>
+  </g>
+  <g
+     transform="translate(-1.6916288,1.9466544)"
+     id="g1405">
+    <circle
+       style="fill:#b20000"
+       r="3"
+       cy="20"
+       cx="80"
+       id="pin:Z" />
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:end;writing-mode:lr-tb;text-anchor:end;fill:#808080"
+       id="text1403"
+       y="26"
+       x="76"
+       font-size="18">
+      <tspan
+         sodipodi:role="line"
+         id="tspan1415"
+         x="76"
+         y="26">Z</tspan>
+    </text>
+  </g>
+  <g
+     transform="translate(23.509236,64.142479)"
+     id="g1411">
+    <circle
+       style="fill:#0000b2"
+       r="3"
+       cy="40"
+       cx="0"
+       id="pin:aSel" />
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#808080"
+       id="text1409"
+       y="46"
+       x="4"
+       font-size="18">
+      <tspan
+         sodipodi:role="line"
+         id="tspan1427"
+         x="4"
+         y="46">aSel</tspan>
+    </text>
+  </g>
+</svg>

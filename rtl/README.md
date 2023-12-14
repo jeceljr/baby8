@@ -33,6 +33,20 @@ logic unit).
 
 ![Datapath](baby8_datapath.svg)
 
+## baby_alu.dig
+
+This combines two operands in the different ways needed
+by the instructions.
+
+![ALU](baby8_alu.svg)
+
+## flags.dig
+
+This calculates the zero, negative and overflow flags
+based on the two operands and the result of the addition.
+
+![flags](flags.svg)
+
 ## baby8_control.dig
 
 A hardwired finite state machine generates the signals needed
