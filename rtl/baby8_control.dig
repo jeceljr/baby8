@@ -12,8 +12,12 @@
       <elementName>In</elementName>
       <elementAttributes>
         <entry>
+          <string>Description</string>
+          <string>data from external memory</string>
+        </entry>
+        <entry>
           <string>Label</string>
-          <string>R</string>
+          <string>dIn</string>
         </entry>
         <entry>
           <string>Bits</string>
@@ -26,6 +30,10 @@
       <elementName>In</elementName>
       <elementAttributes>
         <entry>
+          <string>Description</string>
+          <string>zero flag from ALU</string>
+        </entry>
+        <entry>
           <string>Label</string>
           <string>Z</string>
         </entry>
@@ -35,6 +43,10 @@
     <visualElement>
       <elementName>In</elementName>
       <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>carry flag from ALU</string>
+        </entry>
         <entry>
           <string>Label</string>
           <string>C</string>
@@ -46,6 +58,10 @@
       <elementName>In</elementName>
       <elementAttributes>
         <entry>
+          <string>Description</string>
+          <string>negative flag from ALU</string>
+        </entry>
+        <entry>
           <string>Label</string>
           <string>N</string>
         </entry>
@@ -55,6 +71,10 @@
     <visualElement>
       <elementName>In</elementName>
       <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>overflow flag from ALU</string>
+        </entry>
         <entry>
           <string>Label</string>
           <string>V</string>
@@ -66,6 +86,10 @@
       <elementName>In</elementName>
       <elementAttributes>
         <entry>
+          <string>Description</string>
+          <string>system clock</string>
+        </entry>
+        <entry>
           <string>Label</string>
           <string>clock</string>
         </entry>
@@ -75,6 +99,10 @@
     <visualElement>
       <elementName>In</elementName>
       <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>resets system when low</string>
+        </entry>
         <entry>
           <string>Label</string>
           <string>resetn</string>
@@ -86,6 +114,10 @@
       <elementName>In</elementName>
       <elementAttributes>
         <entry>
+          <string>Description</string>
+          <string>interrupt when high</string>
+        </entry>
+        <entry>
           <string>Label</string>
           <string>int</string>
         </entry>
@@ -96,6 +128,10 @@
       <elementName>Out</elementName>
       <elementAttributes>
         <entry>
+          <string>Description</string>
+          <string>writes the selected register</string>
+        </entry>
+        <entry>
           <string>Label</string>
           <string>wReg</string>
         </entry>
@@ -105,6 +141,10 @@
     <visualElement>
       <elementName>Out</elementName>
       <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>register to write</string>
+        </entry>
         <entry>
           <string>Label</string>
           <string>wAd</string>
@@ -120,6 +160,10 @@
       <elementName>Out</elementName>
       <elementAttributes>
         <entry>
+          <string>Description</string>
+          <string>register to read for second operand</string>
+        </entry>
+        <entry>
           <string>Label</string>
           <string>aAd</string>
         </entry>
@@ -133,6 +177,10 @@
     <visualElement>
       <elementName>Out</elementName>
       <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>register to read for first operand</string>
+        </entry>
         <entry>
           <string>Label</string>
           <string>bAd</string>
@@ -148,6 +196,10 @@
       <elementName>Out</elementName>
       <elementAttributes>
         <entry>
+          <string>Description</string>
+          <string>use register, memory or i/o as operand</string>
+        </entry>
+        <entry>
           <string>Label</string>
           <string>bSel</string>
         </entry>
@@ -161,6 +213,10 @@
     <visualElement>
       <elementName>Out</elementName>
       <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>logical operation</string>
+        </entry>
         <entry>
           <string>Label</string>
           <string>logSel</string>
@@ -176,6 +232,10 @@
       <elementName>Out</elementName>
       <elementAttributes>
         <entry>
+          <string>Description</string>
+          <string>normal, inverted or constant</string>
+        </entry>
+        <entry>
           <string>Label</string>
           <string>aSel</string>
         </entry>
@@ -190,6 +250,10 @@
       <elementName>Out</elementName>
       <elementAttributes>
         <entry>
+          <string>Description</string>
+          <string>output carry in for ALU</string>
+        </entry>
+        <entry>
           <string>Label</string>
           <string>Cin</string>
         </entry>
@@ -199,6 +263,10 @@
     <visualElement>
       <elementName>Out</elementName>
       <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>replacement value for A7</string>
+        </entry>
         <entry>
           <string>Label</string>
           <string>A7</string>
@@ -210,6 +278,10 @@
       <elementName>Out</elementName>
       <elementAttributes>
         <entry>
+          <string>Description</string>
+          <string>replacement value for A0</string>
+        </entry>
+        <entry>
           <string>Label</string>
           <string>A0</string>
         </entry>
@@ -219,6 +291,10 @@
     <visualElement>
       <elementName>Out</elementName>
       <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>use alternative A7</string>
+        </entry>
         <entry>
           <string>Label</string>
           <string>a7S</string>
@@ -230,6 +306,10 @@
       <elementName>Out</elementName>
       <elementAttributes>
         <entry>
+          <string>Description</string>
+          <string>use alternative A0</string>
+        </entry>
+        <entry>
           <string>Label</string>
           <string>a0S</string>
         </entry>
@@ -240,15 +320,23 @@
       <elementName>Out</elementName>
       <elementAttributes>
         <entry>
+          <string>Description</string>
+          <string>asks memory to save data</string>
+        </entry>
+        <entry>
           <string>Label</string>
           <string>wMem</string>
         </entry>
       </elementAttributes>
-      <pos x="1300" y="640"/>
+      <pos x="1300" y="900"/>
     </visualElement>
     <visualElement>
       <elementName>Out</elementName>
       <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>output port 3 should load dOut</string>
+        </entry>
         <entry>
           <string>Label</string>
           <string>out3</string>
@@ -260,6 +348,10 @@
       <elementName>Out</elementName>
       <elementAttributes>
         <entry>
+          <string>Description</string>
+          <string>output port 2 should load dOut</string>
+        </entry>
+        <entry>
           <string>Label</string>
           <string>out2</string>
         </entry>
@@ -270,6 +362,10 @@
       <elementName>Out</elementName>
       <elementAttributes>
         <entry>
+          <string>Description</string>
+          <string>output port 1 should load dOut</string>
+        </entry>
+        <entry>
           <string>Label</string>
           <string>out1</string>
         </entry>
@@ -279,6 +375,10 @@
     <visualElement>
       <elementName>Out</elementName>
       <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>output port 0 should load dOut</string>
+        </entry>
         <entry>
           <string>Label</string>
           <string>out0</string>
@@ -327,6 +427,20 @@
         </entry>
       </elementAttributes>
       <pos x="340" y="260"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>rMem</string>
+        </entry>
+        <entry>
+          <string>Description</string>
+          <string>asks memory to output data</string>
+        </entry>
+      </elementAttributes>
+      <pos x="1300" y="940"/>
     </visualElement>
   </visualElements>
   <wires>

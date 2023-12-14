@@ -14,6 +14,13 @@ so the combinational circuit has settled to
 a stable value before the hold time defined for
 the registers.
 
+## test_term.dig
+
+This simple circuit connects the Baby 8 processor
+with a small memory and a terminal output.
+
+![Teste with Terminal](test_term.svg)
+
 ## baby8cpu.dig
 
 The combination of the datapath and the control unit

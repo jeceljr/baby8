@@ -159,24 +159,6 @@
       <pos x="300" y="520"/>
     </visualElement>
     <visualElement>
-      <elementName>Out</elementName>
-      <elementAttributes>
-        <entry>
-          <string>Description</string>
-          <string>result of the addition</string>
-        </entry>
-        <entry>
-          <string>Label</string>
-          <string>R</string>
-        </entry>
-        <entry>
-          <string>Bits</string>
-          <int>8</int>
-        </entry>
-      </elementAttributes>
-      <pos x="1300" y="60"/>
-    </visualElement>
-    <visualElement>
       <elementName>Const</elementName>
       <elementAttributes/>
       <pos x="1280" y="360"/>
@@ -432,7 +414,7 @@
       <elementAttributes>
         <entry>
           <string>RectHeight</string>
-          <int>12</int>
+          <int>13</int>
         </entry>
         <entry>
           <string>Label</string>
@@ -443,7 +425,7 @@
           <int>21</int>
         </entry>
       </elementAttributes>
-      <pos x="860" y="60"/>
+      <pos x="860" y="40"/>
     </visualElement>
     <visualElement>
       <elementName>baby8_alu.dig</elementName>
@@ -468,12 +450,12 @@
       <elementName>Out</elementName>
       <elementAttributes>
         <entry>
-          <string>Label</string>
-          <string>V</string>
-        </entry>
-        <entry>
           <string>Description</string>
           <string>overflow - result has different sign from operands</string>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>V</string>
         </entry>
       </elementAttributes>
       <pos x="1020" y="380"/>
@@ -482,12 +464,12 @@
       <elementName>Out</elementName>
       <elementAttributes>
         <entry>
-          <string>Label</string>
-          <string>N</string>
-        </entry>
-        <entry>
           <string>Description</string>
           <string>negative result</string>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>N</string>
         </entry>
       </elementAttributes>
       <pos x="1020" y="340"/>
@@ -496,12 +478,12 @@
       <elementName>Out</elementName>
       <elementAttributes>
         <entry>
-          <string>Label</string>
-          <string>C</string>
-        </entry>
-        <entry>
           <string>Description</string>
           <string>carry out</string>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>C</string>
         </entry>
       </elementAttributes>
       <pos x="940" y="320"/>
@@ -735,10 +717,6 @@
     <wire>
       <p1 x="400" y="60"/>
       <p2 x="1240" y="60"/>
-    </wire>
-    <wire>
-      <p1 x="1240" y="60"/>
-      <p2 x="1300" y="60"/>
     </wire>
     <wire>
       <p1 x="300" y="700"/>
