@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <circuit>
-  <version>1</version>
+  <version>2</version>
   <attributes>
     <entry>
       <string>Width</string>
@@ -387,34 +387,6 @@
       <pos x="1300" y="820"/>
     </visualElement>
     <visualElement>
-      <elementName>Register</elementName>
-      <elementAttributes>
-        <entry>
-          <string>Label</string>
-          <string>IR</string>
-        </entry>
-        <entry>
-          <string>Bits</string>
-          <int>8</int>
-        </entry>
-      </elementAttributes>
-      <pos x="420" y="140"/>
-    </visualElement>
-    <visualElement>
-      <elementName>Register</elementName>
-      <elementAttributes>
-        <entry>
-          <string>Label</string>
-          <string>flags</string>
-        </entry>
-        <entry>
-          <string>Bits</string>
-          <int>4</int>
-        </entry>
-      </elementAttributes>
-      <pos x="460" y="260"/>
-    </visualElement>
-    <visualElement>
       <elementName>Splitter</elementName>
       <elementAttributes>
         <entry>
@@ -432,26 +404,23 @@
       <elementName>Out</elementName>
       <elementAttributes>
         <entry>
-          <string>Label</string>
-          <string>rMem</string>
-        </entry>
-        <entry>
           <string>Description</string>
           <string>asks memory to output data</string>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>rMem</string>
         </entry>
       </elementAttributes>
       <pos x="1300" y="940"/>
     </visualElement>
+    <visualElement>
+      <elementName>Register</elementName>
+      <elementAttributes/>
+      <pos x="400" y="480"/>
+    </visualElement>
   </visualElements>
   <wires>
-    <wire>
-      <p1 x="260" y="160"/>
-      <p2 x="360" y="160"/>
-    </wire>
-    <wire>
-      <p1 x="380" y="160"/>
-      <p2 x="420" y="160"/>
-    </wire>
     <wire>
       <p1 x="260" y="400"/>
       <p2 x="380" y="400"/>
@@ -465,16 +434,16 @@
       <p2 x="300" y="240"/>
     </wire>
     <wire>
-      <p1 x="360" y="260"/>
-      <p2 x="460" y="260"/>
+      <p1 x="260" y="480"/>
+      <p2 x="400" y="480"/>
     </wire>
     <wire>
       <p1 x="320" y="260"/>
       <p2 x="340" y="260"/>
     </wire>
     <wire>
-      <p1 x="380" y="280"/>
-      <p2 x="460" y="280"/>
+      <p1 x="380" y="500"/>
+      <p2 x="400" y="500"/>
     </wire>
     <wire>
       <p1 x="260" y="280"/>
@@ -489,10 +458,6 @@
       <p2 x="320" y="200"/>
     </wire>
     <wire>
-      <p1 x="360" y="140"/>
-      <p2 x="420" y="140"/>
-    </wire>
-    <wire>
       <p1 x="280" y="300"/>
       <p2 x="340" y="300"/>
     </wire>
@@ -501,24 +466,16 @@
       <p2 x="320" y="260"/>
     </wire>
     <wire>
-      <p1 x="360" y="140"/>
-      <p2 x="360" y="160"/>
-    </wire>
-    <wire>
       <p1 x="280" y="280"/>
       <p2 x="280" y="300"/>
     </wire>
     <wire>
-      <p1 x="380" y="160"/>
-      <p2 x="380" y="280"/>
-    </wire>
-    <wire>
-      <p1 x="380" y="280"/>
-      <p2 x="380" y="400"/>
-    </wire>
-    <wire>
       <p1 x="300" y="240"/>
       <p2 x="300" y="280"/>
+    </wire>
+    <wire>
+      <p1 x="380" y="400"/>
+      <p2 x="380" y="500"/>
     </wire>
   </wires>
   <measurementOrdering/>

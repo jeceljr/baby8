@@ -60,3 +60,22 @@ A hardwired finite state machine generates the signals needed
 to use the datapath to execute instructions.
 
 ![Control Unit](baby8_control.svg)
+
+## decode.dig
+
+This takes a byte and separates the signals indicating the
+different parts of a Baby 8 instruciton. As a purely
+combinational circuit, any of its outputs must be externally
+saved if needed for later.
+
+![Decoder](decode.svg)
+
+## test.dig
+
+This saves flags to one of two registers depending on the
+interrupt mode and allows testing the saved flags of the
+current mode. The 16 different conditions, as seen in
+PDP-11 and ARM processors are calculated and one is
+selected.
+
+![Test flags](test.svg)
