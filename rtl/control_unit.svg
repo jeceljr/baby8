@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Digital by H.Neemann -->
-<!-- created: Sat Dec 30 18:23:21 BRT 2023 -->
+<!-- created: Sat Dec 30 19:01:18 BRT 2023 -->
 
 <svg
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   width="165.45mm"
-   height="85.5mm"
-   viewBox="-311 182 1103 570">
+   width="330.45mm"
+   height="382.5mm"
+   viewBox="-731 182 2203 2550">
 <g stroke-linecap="square">
 <circle cx="240.0" cy="300.0" r="90.0" stroke="#000000" stroke-width="4.0" fill="none" />
 <circle cx="133.93399" cy="193.93399" r="10.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
@@ -19,8 +19,54 @@
 <circle cx="240.0" cy="660.0" r="90.0" stroke="#000000" stroke-width="4.0" fill="none" />
 <text text-anchor="middle" x="240.0" y="645.0" fill="#000000" style="font-size:24px">1 DC</text>
 <text text-anchor="middle" x="240.0" y="669.0" fill="#000000" style="font-size:24px">resetb</text>
-<text text-anchor="middle" x="240.0" y="693.0" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">wAd=1111,wReg=1,rMem=0,wMem=0,wIR=0,wFL=0,aSel=00,bSelf=00,logSel=11,Cin=00</tspan></text>
-<path d="M 240.43703,393.99896 Q 240.51477,480.99997 240.44633,564.00104" stroke="#808080" stroke-width="2.0" fill="none"/>
-<path d="M 234.46283,543.9961 L 240.44469,566.00104 L 246.46283,544.006" stroke="#808080" stroke-width="2.0" fill="none"/>
+<text text-anchor="middle" x="240.0" y="693.0" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">wAd=1111,wReg=1,rMem=0,wMem=0,wIR=0,wFl=0,aSel=00,bSel=00,logSel=11,Cin=00</tspan></text>
+<circle cx="240.0" cy="1020.0" r="90.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<text text-anchor="middle" x="240.0" y="1005.0" fill="#000000" style="font-size:24px">2 DC</text>
+<text text-anchor="middle" x="240.0" y="1029.0" fill="#000000" style="font-size:24px">resetc</text>
+<text text-anchor="middle" x="240.0" y="1053.0" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">wAd=0100,wReg=1,rMem=0,wMem=0,wIR=0,wFl=0,aSel=00,bSel=00,logSel=11,Cin=00</tspan></text>
+<circle cx="240.0" cy="1380.0" r="90.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<text text-anchor="middle" x="240.0" y="1365.0" fill="#000000" style="font-size:24px">3 DC</text>
+<text text-anchor="middle" x="240.0" y="1389.0" fill="#000000" style="font-size:24px">resetd</text>
+<text text-anchor="middle" x="240.0" y="1413.0" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">wAd=0101,wReg=1,rMem=0,wMem=0,wIR=0,wFl=0,aSel=00,bSel=00,logSel=11,Cin=00</tspan></text>
+<circle cx="-120.0" cy="1800.0" r="90.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<text text-anchor="middle" x="-120.0" y="1785.0" fill="#000000" style="font-size:24px">4 DC</text>
+<text text-anchor="middle" x="-120.0" y="1809.0" fill="#000000" style="font-size:24px">timer</text>
+<text text-anchor="middle" x="-120.0" y="1833.0" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">bAd=0100,wAd=0100,wReg=1,rMem=0,wMem=0,wIR=0,wFl=0,aSel=01,bSel=00,logSel=00,Cin=01</tspan></text>
+<circle cx="-120.0" cy="2220.0" r="90.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<text text-anchor="middle" x="-120.0" y="2205.0" fill="#000000" style="font-size:24px">5 DC</text>
+<text text-anchor="middle" x="-120.0" y="2229.0" fill="#000000" style="font-size:24px">timerb</text>
+<text text-anchor="middle" x="-120.0" y="2253.0" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">bAd=0101,wAd=0101,wReg=1,rMem=0,wMem=0,wIR=0,wFl=0,aSel=01,bSel=00,logSel=00,Cin=01</tspan></text>
+<circle cx="-120.0" cy="2640.0" r="90.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<text text-anchor="middle" x="-120.0" y="2625.0" fill="#000000" style="font-size:24px">6 DC</text>
+<text text-anchor="middle" x="-120.0" y="2649.0" fill="#000000" style="font-size:24px">timerc</text>
+<text text-anchor="middle" x="-120.0" y="2673.0" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">bAd=0100,wAd=0100,wReg=1,rMem=0,wMem=0,wIR=0,wFl=0,aSel=01,bSel=00,logSel=00,Cin=00</tspan></text>
+<circle cx="1380.0" cy="1800.0" r="90.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<text text-anchor="middle" x="1380.0" y="1785.0" fill="#000000" style="font-size:24px">7 DC</text>
+<text text-anchor="middle" x="1380.0" y="1809.0" fill="#000000" style="font-size:24px">fetcha</text>
+<path d="M 240.6337,393.99786 Q 240.74641,481 240.64719,564.0022" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M 234.6711,543.995 L 240.64479,566.0022 L 246.6711,544.0094" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M 241.4826,753.9883 Q 241.74664,840.9999 241.51414,924.01196" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M 235.57019,903.99524 L 241.50854,926.01196 L 247.57013,904.0288" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M 245.59023,1113.8336 Q 246.60593,1200.9983 245.70917,1284.1699" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M 239.92514,1264.1064 L 245.6876,1286.1698 L 251.92444,1264.2358" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M 179.5703,1452.0017 Q 61.093224,1592.2542 -56.77025,1727.7643" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M -48.172024,1708.7361 L -58.082787,1729.2733 L -39.117702,1716.6113" stroke="#808080" stroke-width="2.0" fill="none"/>
+<text text-anchor="middle" x="61.246624" y="1600.0685" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">TZ=0</tspan></text>
+<path d="M -129.01035,2313.5671 Q -134.00537,2430.995 -129.20206,2544.4421" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M -136.04272,2524.7139 L -129.11745,2546.4404 L -124.05347,2524.206" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M -75.56756,2557.1643 Q 92.56314,2219.119 -74.62219,1884.5981" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M -60.314083,1899.8059 L -75.5163,1882.8091 L -71.04817,1905.1707" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M -213.96667,1797.4973 C -361.8803,1793.5579 -262.9525,1598.4309 -175.53479,1721.6936" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M -191.99869,1708.8507 L -174.37782,1723.325 L -182.21039,1701.9088" stroke="#808080" stroke-width="2.0" fill="none"/>
+<text text-anchor="middle" x="-283.0" y="1710.0" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">Z=0</tspan></text>
+<path d="M 328.23254,1412.4194 Q 811.1188,1589.8557 1289.948,1766.7338" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M 1269.108,1765.4319 L 1291.8241,1767.4268 L 1273.2662,1754.1753" stroke="#808080" stroke-width="2.0" fill="none"/>
+<text text-anchor="middle" x="810.10455" y="1598.7162" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">TZ=1</tspan></text>
+<path d="M -26.000237,1799.7888 Q 631,1798.288 1284.0002,1799.7844" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M 1263.9865,1805.7386 L 1286.0002,1799.7891 L 1264.014,1793.7386" stroke="#808080" stroke-width="2.0" fill="none"/>
+<text text-anchor="middle" x="630.0" y="1796.0374" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">Z=1&amp;TZ=1</tspan></text>
+<path d="M -120.34464,1893.9994 Q -120.53165,2010.9999 -120.35198,2124.0007" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M -126.38377,2104.0103 L -120.3488,2126.0007 L -114.38379,2103.9912" stroke="#808080" stroke-width="2.0" fill="none"/>
+<text text-anchor="middle" x="-120.43998" y="2019.0" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">Z=1&amp;TZ=0</tspan></text>
 </g>
 </svg>
