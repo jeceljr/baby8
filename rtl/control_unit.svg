@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Digital by H.Neemann -->
+<!-- created: Sat Dec 30 18:23:21 BRT 2023 -->
+
+<svg
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   width="165.45mm"
+   height="85.5mm"
+   viewBox="-311 182 1103 570">
+<g stroke-linecap="square">
+<circle cx="240.0" cy="300.0" r="90.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<circle cx="133.93399" cy="193.93399" r="10.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<path d="M 143.83348,203.83348 Q 158.68271,218.68271 173.53195,233.53195" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M 155.14717,223.63246 L 174.94617,234.94617 L 163.63246,215.14717" stroke="#808080" stroke-width="2.0" fill="none"/>
+<text text-anchor="middle" x="240.0" y="285.0" fill="#000000" style="font-size:24px">0 DC</text>
+<text text-anchor="middle" x="240.0" y="309.0" fill="#000000" style="font-size:24px">reset</text>
+<text text-anchor="middle" x="240.0" y="333.0" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">wAd=1110,wReg=1,rMem=0,wMem=0,wIR=0,wFl=0,aSel=00,bSel=00,logSel=11,Cin=00</tspan></text>
+<circle cx="240.0" cy="660.0" r="90.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<text text-anchor="middle" x="240.0" y="645.0" fill="#000000" style="font-size:24px">1 DC</text>
+<text text-anchor="middle" x="240.0" y="669.0" fill="#000000" style="font-size:24px">resetb</text>
+<text text-anchor="middle" x="240.0" y="693.0" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">wAd=1111,wReg=1,rMem=0,wMem=0,wIR=0,wFL=0,aSel=00,bSelf=00,logSel=11,Cin=00</tspan></text>
+<path d="M 240.43703,393.99896 Q 240.51477,480.99997 240.44633,564.00104" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M 234.46283,543.9961 L 240.44469,566.00104 L 246.46283,544.006" stroke="#808080" stroke-width="2.0" fill="none"/>
+</g>
+</svg>

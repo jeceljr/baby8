@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fsm>
+  <states>
+    <state>
+      <values>wAd=1110,wReg=1,rMem=0,wMem=0,wIR=0,wFl=0,aSel=00,bSel=00,logSel=11,Cin=00</values>
+      <position x="240.0" y="300.0"/>
+      <number>0</number>
+      <name>reset</name>
+      <radius>90</radius>
+      <isInitial>true</isInitial>
+      <initialAngle>12</initialAngle>
+      <defaultDC>true</defaultDC>
+    </state>
+    <state>
+      <values>wAd=1111,wReg=1,rMem=0,wMem=0,wIR=0,wFL=0,aSel=00,bSelf=00,logSel=11,Cin=00</values>
+      <position x="240.0" y="660.0"/>
+      <number>1</number>
+      <name>resetb</name>
+      <radius>90</radius>
+      <isInitial>false</isInitial>
+      <initialAngle>12</initialAngle>
+      <defaultDC>true</defaultDC>
+    </state>
+  </states>
+  <transitions>
+    <transition>
+      <values></values>
+      <position x="240.47823" y="480.0"/>
+      <fromState reference="../../../states/state"/>
+      <toState reference="../../../states/state[2]"/>
+      <condition></condition>
+    </transition>
+  </transitions>
+</fsm>

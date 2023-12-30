@@ -97,3 +97,10 @@ to PH and PL registers and changes to iH and iL depending on
 the current interrupt level.
 
 ![Mux for control unit](cmux.svg)
+
+## control_unit.fsm
+
+A graphical version of the Finite State Machine described in
+the spreadsheet.
+
+![Finite State Machine](control_unit.svg)
