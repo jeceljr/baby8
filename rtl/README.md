@@ -86,4 +86,14 @@ The outputs of the Finite State Machine which is the heart
 of the control unit don't match exactly what the datapath
 expects, so this blocks converts one set of signals to
 the other.
+
 ![FSM to Control](fsm2control.svg)
+
+## cmux.dig
+
+A helper circuit for fsm2control, this multiplexes four inputs
+based on the content of the third input. It also detects access
+to PH and PL registers and changes to iH and iL depending on
+the current interrupt level.
+
+![Mux for control unit](cmux.svg)
