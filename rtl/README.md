@@ -79,3 +79,11 @@ PDP-11 and ARM processors are calculated and one is
 selected.
 
 ![Test flags](test.svg)
+
+## fsm2control..dig
+
+The outputs of the Finite State Machine which is the heart
+of the control unit don't match exactly what the datapath
+expects, so this blocks converts one set of signals to
+the other.
+![FSM to COntrol](fsm2contro.svg)
