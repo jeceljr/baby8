@@ -966,26 +966,6 @@ values used by the datapath</string>
       <elementAttributes>
         <entry>
           <string>Value</string>
-          <long>0</long>
-        </entry>
-      </elementAttributes>
-      <pos x="640" y="940"/>
-    </visualElement>
-    <visualElement>
-      <elementName>Text</elementName>
-      <elementAttributes>
-        <entry>
-          <string>Description</string>
-          <string>x</string>
-        </entry>
-      </elementAttributes>
-      <pos x="600" y="940"/>
-    </visualElement>
-    <visualElement>
-      <elementName>Const</elementName>
-      <elementAttributes>
-        <entry>
-          <string>Value</string>
           <long>2</long>
         </entry>
         <entry>
@@ -1353,6 +1333,20 @@ values used by the datapath</string>
       </elementAttributes>
       <pos x="1400" y="240"/>
     </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>tr</string>
+        </entry>
+        <entry>
+          <string>Description</string>
+          <string>test result using saved flags</string>
+        </entry>
+      </elementAttributes>
+      <pos x="640" y="960"/>
+    </visualElement>
   </visualElements>
   <wires>
     <wire>
@@ -1580,7 +1574,7 @@ values used by the datapath</string>
       <p2 x="1360" y="940"/>
     </wire>
     <wire>
-      <p1 x="640" y="940"/>
+      <p1 x="660" y="940"/>
       <p2 x="680" y="940"/>
     </wire>
     <wire>
@@ -1662,6 +1656,10 @@ values used by the datapath</string>
     <wire>
       <p1 x="1240" y="960"/>
       <p2 x="1340" y="960"/>
+    </wire>
+    <wire>
+      <p1 x="640" y="960"/>
+      <p2 x="660" y="960"/>
     </wire>
     <wire>
       <p1 x="1340" y="960"/>
@@ -1922,6 +1920,10 @@ values used by the datapath</string>
     <wire>
       <p1 x="1620" y="620"/>
       <p2 x="1620" y="640"/>
+    </wire>
+    <wire>
+      <p1 x="660" y="940"/>
+      <p2 x="660" y="960"/>
     </wire>
     <wire>
       <p1 x="1560" y="-240"/>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Digital by H.Neemann -->
-<!-- created: Sat Dec 30 17:52:39 BRT 2023 -->
+<!-- created: Sun Dec 31 17:01:00 BRT 2023 -->
 
 <svg
    xmlns:svg="http://www.w3.org/2000/svg"
@@ -70,7 +70,6 @@
 <path d="M 720,680 L 760,680" stroke="#0000b2" stroke-width="4.0" fill="none"/>
 <path d="M 580,680 L 680,680" stroke="#0000b2" stroke-width="4.0" fill="none"/>
 <path d="M 1340,920 L 1340,940 L 1360,940" stroke="#0000b2" stroke-width="4.0" fill="none"/>
-<path d="M 640,940 L 680,940" stroke="#0000b2" stroke-width="4.0" fill="none"/>
 <path d="M 680,300 L 700,300 L 700,240" stroke="#0000b2" stroke-width="4.0" fill="none"/>
 <path d="M 1300,300 L 1340,300 L 1480,300 L 1480,280" stroke="#0000b2" stroke-width="4.0" fill="none"/>
 <path d="M 1360,-180 L 1400,-180" stroke="#0000b2" stroke-width="4.0" fill="none"/>
@@ -85,6 +84,7 @@
 <path d="M 640,700 L 680,700" stroke="#0000b2" stroke-width="4.0" fill="none"/>
 <path d="M 1440,-320 L 1500,-320" stroke="#0000b2" stroke-width="4.0" fill="none"/>
 <path d="M 1240,960 L 1340,960 L 1360,960" stroke="#0000b2" stroke-width="4.0" fill="none"/>
+<path d="M 640,960 L 660,960 L 660,940 L 680,940" stroke="#0000b2" stroke-width="4.0" fill="none"/>
 <path d="M 940,-580 L 960,-580 L 980,-580" stroke="#0000b2" stroke-width="4.0" fill="none"/>
 <path d="M 1500,-200 L 1540,-200 L 1540,20 L 1660,20" stroke="#0000b2" stroke-width="4.0" fill="none"/>
 <path d="M 1240,-200 L 1260,-200 L 1260,-240 L 1560,-240 L 1560,-20 L 1660,-20" stroke="#0000b2" stroke-width="4.0" fill="none"/>
@@ -603,13 +603,6 @@
 <text text-anchor="start" x="600.0" y="238.0" fill="#000000" style="font-size:24px">x</text>
 </g>
 <g>
-<text text-anchor="end" x="637.0" y="949.0" fill="#000000" style="font-size:24px">0</text>
-<circle cx="640.0" cy="940.0" r="2.0" stroke="#b20000" stroke-width="4.0" fill="#b20000" />
-</g>
-<g>
-<text text-anchor="start" x="600.0" y="958.0" fill="#000000" style="font-size:24px">x</text>
-</g>
-<g>
 <text text-anchor="end" x="637.0" y="649.0" fill="#000000" style="font-size:24px">2</text>
 <circle cx="640.0" cy="640.0" r="2.0" stroke="#b20000" stroke-width="4.0" fill="#b20000" />
 </g>
@@ -756,6 +749,12 @@
 </g>
 <g>
 <text text-anchor="start" x="1400.0" y="258.0" fill="#000000" style="font-size:24px">B</text>
+</g>
+<g>
+<path d="M 609,945 L 639,945 L 639,975 L 609,975 Z" stroke="#000000" stroke-width="4.0" fill="none"/>
+<circle cx="624.0" cy="960.0" r="9.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<text text-anchor="end" x="595.0" y="969.0" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">tr</tspan></text>
+<circle cx="640.0" cy="960.0" r="2.0" stroke="#b20000" stroke-width="4.0" fill="#b20000" />
 </g>
 </g>
 </svg>
