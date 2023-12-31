@@ -72,7 +72,7 @@
       <defaultDC>true</defaultDC>
     </state>
     <state>
-      <values></values>
+      <values>aAd=1111,bAd=1110,wAd=1110,wReg=1,rMem=1,wMem=0,wIR=0,wFl=0,aSel=00,bSel=00,logSel=00,Cin=01,sA7=0,sA0=0</values>
       <position x="1380.0" y="1800.0"/>
       <number>7</number>
       <name>fetcha</name>
@@ -81,45 +81,65 @@
       <initialAngle>12</initialAngle>
       <defaultDC>true</defaultDC>
     </state>
+    <state>
+      <values>bAd=1111,wAd=1111,wReg=1,rMem=0,wMem=0,wIR=1,wFl=0,aSel=00,bSel=00,logSel=00,Cin=01</values>
+      <position x="1380.0" y="2220.0"/>
+      <number>8</number>
+      <name>fetchb</name>
+      <radius>90</radius>
+      <isInitial>false</isInitial>
+      <initialAngle>12</initialAngle>
+      <defaultDC>true</defaultDC>
+    </state>
+    <state>
+      <values>wReg=0,rMem=0,wMem=0,wIR=1,wFl=0</values>
+      <position x="2880.0" y="2220.0"/>
+      <number>9</number>
+      <name>fetchc</name>
+      <radius>90</radius>
+      <isInitial>false</isInitial>
+      <initialAngle>12</initialAngle>
+      <defaultDC>true</defaultDC>
+    </state>
   </states>
   <transitions>
     <transition>
-      <values></values>
+      <values>nextFetch=0</values>
       <position x="240.69344" y="480.0"/>
       <fromState reference="../../../states/state"/>
       <toState reference="../../../states/state[2]"/>
       <condition></condition>
     </transition>
     <transition>
-      <values></values>
+      <values>nextFetch=0</values>
       <position x="241.62251" y="840.0"/>
       <fromState reference="../../../states/state[2]"/>
       <toState reference="../../../states/state[3]"/>
       <condition></condition>
     </transition>
     <transition>
-      <values></values>
+      <values>nextFetch=0</values>
       <position x="246.1278" y="1200.0"/>
       <fromState reference="../../../states/state[3]"/>
       <toState reference="../../../states/state[4]"/>
       <condition></condition>
     </transition>
     <transition>
-      <values></values>
+      <values>nextFetch=0</values>
       <position x="61.246624" y="1591.0685"/>
       <fromState reference="../../../states/state[4]"/>
       <toState reference="../../../states/state[5]"/>
       <condition>TZ=0</condition>
     </transition>
     <transition>
-      <values></values>
+      <values>nextFetch=0</values>
       <position x="-131.55579" y="2430.0"/>
       <fromState reference="../../../states/state[6]"/>
       <toState reference="../../../states/state[7]"/>
       <condition></condition>
     </transition>
     <transition>
-      <values></values>
+      <values>nextFetch=0</values>
       <position x="8.734131" y="2220.0"/>
       <fromState reference="../../../states/state[7]"/>
       <toState reference="../../../states/state[5]"/>
@@ -133,7 +153,7 @@
       <condition>Z=0</condition>
     </transition>
     <transition>
-      <values></values>
+      <values>nextFetch=1</values>
       <position x="810.10455" y="1589.7162"/>
       <fromState reference="../../../states/state[4]"/>
       <toState reference="../../../states/state[8]"/>
@@ -147,11 +167,25 @@
       <condition>Z=1&amp;TZ=1</condition>
     </transition>
     <transition>
-      <values></values>
+      <values>nextFetch=0</values>
       <position x="-120.43998" y="2010.0"/>
       <fromState reference="../../../states/state[5]"/>
       <toState reference="../../../states/state[6]"/>
       <condition>Z=1&amp;TZ=0</condition>
+    </transition>
+    <transition>
+      <values>nextFetch=0</values>
+      <position x="1379.1282" y="2010.0"/>
+      <fromState reference="../../../states/state[8]"/>
+      <toState reference="../../../states/state[9]"/>
+      <condition>C=1</condition>
+    </transition>
+    <transition>
+      <values>nextFetch=0</values>
+      <position x="2130.1162" y="2009.585"/>
+      <fromState reference="../../../states/state[8]"/>
+      <toState reference="../../../states/state[10]"/>
+      <condition>C=0</condition>
     </transition>
   </transitions>
 </fsm>
