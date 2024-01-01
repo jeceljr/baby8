@@ -117,3 +117,6 @@ spreadsheet.
 1. Moved instructions to first 128 lines, copied non standard next field
 
 1. Eliminated comment columns dIn and dOut
+
+1. replaced don't care(x) with default values since they don't help ROMs like
+they do with PLAs
