@@ -120,3 +120,5 @@ spreadsheet.
 
 1. replaced don't care(x) with default values since they don't help ROMs like
 they do with PLAs
+
+1. convert text fields to numbers and start combining them
