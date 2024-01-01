@@ -115,3 +115,5 @@ spreadsheet.
 1. A copy of the original sheet was created to allow changes.
 
 1. Moved instructions to first 128 lines, copied non standard next field
+
+1. Eliminated comment columns dIn and dOut
