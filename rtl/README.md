@@ -113,3 +113,5 @@ approach was dropped in favor of generating a ROM directly from the
 spreadsheet.
 
 1. A copy of the original sheet was created to allow changes.
+
+1. Moved instructions to first 128 lines, copied non standard next field
