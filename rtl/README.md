@@ -104,3 +104,12 @@ A graphical version of the Finite State Machine described in
 the spreadsheet.
 
 ![Finite State Machine](control_unit.svg)
+
+## FSM based on ROM
+
+Even with only a fraction of the FSM states implemented in the Digital
+graphical editor it is easy to mix up the various arrows. So this
+approach was dropped in favor of generating a ROM directly from the
+spreadsheet.
+
+1. A copy of the original sheet was created to allow changes.
