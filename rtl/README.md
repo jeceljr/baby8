@@ -126,3 +126,5 @@ they do with PLAs
 1. combined all but next field - only 4 bits left
 
 1. cleared formulas in blank lines so they compile to 0 for a valid ROM
+
+1. relative jumps to see what the common cases are
