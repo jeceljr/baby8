@@ -124,3 +124,5 @@ they do with PLAs
 1. convert text fields to numbers and start combining them
 
 1. combined all but next field - only 4 bits left
+
+1. cleared formulas in blank lines so they compile to 0 for a valid ROM
