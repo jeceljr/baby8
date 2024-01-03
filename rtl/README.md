@@ -130,3 +130,5 @@ they do with PLAs
 1. relative jumps to see what the common cases are
 
 1. eliminate the two negative relative jumps
+
+1. implement most common jumps and move subroutine to 0x70
