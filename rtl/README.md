@@ -132,3 +132,11 @@ they do with PLAs
 1. eliminate the two negative relative jumps
 
 1. implement most common jumps and move subroutine to 0x70
+
+## FSMwithROM.dig
+
+The microcode is contained in a ROM with 128 words of 32 bits each. Helper
+circuits separate the microcode into control signals and interpret the *select next uPC*
+signal.
+
+![Finite State Machine](FSMwithROM.svg)
