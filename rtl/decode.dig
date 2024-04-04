@@ -3,6 +3,10 @@
   <version>2</version>
   <attributes>
     <entry>
+      <string>Description</string>
+      <string>converts and incoming byte into signals that detail the features of the corresponding Baby 8 instruction</string>
+    </entry>
+    <entry>
       <string>Label</string>
       <string>decode</string>
     </entry>
@@ -11,10 +15,6 @@
       <romList>
         <roms/>
       </romList>
-    </entry>
-    <entry>
-      <string>Description</string>
-      <string>converts and incoming byte into signals that detail the features of the corresponding Baby 8 instruction</string>
     </entry>
     <entry>
       <string>Width</string>
@@ -26,12 +26,16 @@
       <elementName>In</elementName>
       <elementAttributes>
         <entry>
+          <string>Description</string>
+          <string>Data read from program memory</string>
+        </entry>
+        <entry>
           <string>Label</string>
           <string>dIn</string>
         </entry>
         <entry>
-          <string>Description</string>
-          <string>Data read from program memory</string>
+          <string>Bits</string>
+          <int>8</int>
         </entry>
       </elementAttributes>
       <pos x="-40" y="280"/>
@@ -90,12 +94,12 @@
       <elementName>Out</elementName>
       <elementAttributes>
         <entry>
-          <string>Label</string>
-          <string>test</string>
-        </entry>
-        <entry>
           <string>Description</string>
           <string>indicates a test instruction</string>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>test</string>
         </entry>
       </elementAttributes>
       <pos x="900" y="580"/>
@@ -104,12 +108,12 @@
       <elementName>Out</elementName>
       <elementAttributes>
         <entry>
-          <string>Label</string>
-          <string>k</string>
-        </entry>
-        <entry>
           <string>Description</string>
           <string>indicates cascade instructions depending on the other bits</string>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>k</string>
         </entry>
       </elementAttributes>
       <pos x="900" y="360"/>
@@ -138,12 +142,12 @@
       <elementName>Out</elementName>
       <elementAttributes>
         <entry>
-          <string>Label</string>
-          <string>zd</string>
-        </entry>
-        <entry>
           <string>Description</string>
           <string>zero page destination address</string>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>zd</string>
         </entry>
       </elementAttributes>
       <pos x="900" y="140"/>
@@ -152,12 +156,12 @@
       <elementName>Out</elementName>
       <elementAttributes>
         <entry>
-          <string>Label</string>
-          <string>zs</string>
-        </entry>
-        <entry>
           <string>Description</string>
           <string>zero page source address</string>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>zs</string>
         </entry>
       </elementAttributes>
       <pos x="900" y="220"/>
@@ -183,12 +187,12 @@
       <elementName>Out</elementName>
       <elementAttributes>
         <entry>
-          <string>Label</string>
-          <string>math</string>
-        </entry>
-        <entry>
           <string>Description</string>
           <string>regular math and logic instructions</string>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>math</string>
         </entry>
       </elementAttributes>
       <pos x="900" y="520"/>
@@ -213,12 +217,12 @@
       <elementName>Out</elementName>
       <elementAttributes>
         <entry>
-          <string>Label</string>
-          <string>imm</string>
-        </entry>
-        <entry>
           <string>Description</string>
           <string>immediate math and logic instructions</string>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>imm</string>
         </entry>
       </elementAttributes>
       <pos x="900" y="420"/>
@@ -237,12 +241,12 @@
       <elementName>Out</elementName>
       <elementAttributes>
         <entry>
-          <string>Label</string>
-          <string>jump</string>
-        </entry>
-        <entry>
           <string>Description</string>
           <string>control flow instructions</string>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>jump</string>
         </entry>
       </elementAttributes>
       <pos x="900" y="300"/>
@@ -265,16 +269,16 @@
       <elementName>Out</elementName>
       <elementAttributes>
         <entry>
+          <string>Description</string>
+          <string>selects among 8 possible control flow instructions</string>
+        </entry>
+        <entry>
           <string>Label</string>
           <string>jop</string>
         </entry>
         <entry>
           <string>Bits</string>
           <int>3</int>
-        </entry>
-        <entry>
-          <string>Description</string>
-          <string>selects among 8 possible control flow instructions</string>
         </entry>
       </elementAttributes>
       <pos x="900" y="60"/>
@@ -321,12 +325,16 @@
       <elementName>Out</elementName>
       <elementAttributes>
         <entry>
+          <string>Description</string>
+          <string>selects among 3 math and 3 logic operations</string>
+        </entry>
+        <entry>
           <string>Label</string>
           <string>aluOp</string>
         </entry>
         <entry>
-          <string>Description</string>
-          <string>selects among 3 math and 3 logic operations</string>
+          <string>Bits</string>
+          <int>3</int>
         </entry>
       </elementAttributes>
       <pos x="900" y="0"/>
@@ -349,16 +357,16 @@
       <elementName>Out</elementName>
       <elementAttributes>
         <entry>
+          <string>Description</string>
+          <string>selects between 16 conditions for test instructions</string>
+        </entry>
+        <entry>
           <string>Label</string>
           <string>cond</string>
         </entry>
         <entry>
           <string>Bits</string>
           <int>4</int>
-        </entry>
-        <entry>
-          <string>Description</string>
-          <string>selects between 16 conditions for test instructions</string>
         </entry>
       </elementAttributes>
       <pos x="900" y="-80"/>
