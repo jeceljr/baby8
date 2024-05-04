@@ -6,6 +6,9 @@ its control unit.
 The new Baby 8 design is a single cycle RISC processor with 16 general registers and a simple control unit made from combinational logic. Though it looks like a Harvard architecture
 with a 64KB 8bit wide RAM for data and a 16K by 16 bit ROM for instructions, these are actually a single dual port memory that most FPGAs can efficiently implement.
 
+For many instructions two different mnemonics will be indicated. The first will be based on an instruction name in Portuguese inspired by the 1972 Patinho Feio minicomputer while
+the second one will be based on a name in English typical of RISC processors.
+
 ## Instruction Set
 
 The first instruction format is unique to PUG or JAL (˜Pula e Guarda" or "Jump And Link"). The top two bits are 00 and the bottom 14 bits are the destination address divided by two.
@@ -79,3 +82,22 @@ The memory access instructions have a very similar format to the previous one:
 The *dir* field indicates if the instruction is CAR or LD (for "CARrega or "LoaD") if it is a 0 and ARM or ST (for "ARMazena" or "STore") if it is a 1. The address is formed by the contents of
 the two indicated registers. In the case of a write to memory, the data is the result of the previous instruction (the "K" register). In the csae of a read from memory, the data will
 only arrive in time for the following instruction and it will be used as an operand in places of the destination.
+
+The mode bits will indicate an operation on the low register and will appear in the assembly as the following arguments:
+
+- 000: rH,rL (normal address)
+- 001: rH,rL++ (post increment)
+- 010: rH,rL-- (post decrement)
+- 011: rH,rL (normal address)
+- 100: rH,rL (normal address)
+- 101: rH,++rL (pre increment)
+- 110: rH,--rL (pre decrement)
+- 111: rH,rL (normal address)
+
+Four different modes indicate normal addressing, but we only need one of them. Note that the increments and decrements are 8 bit only and so might give the wrong result if there is a carry
+or borrow that is supposed to affect rH. The case of post operations it is not so bad since this can be detected and corrected after the memory access. But for pre operations the wrong
+address will be used, so these modes have a more limited use.
+
+### Special loads
+
+The memory instruction are not to be used with the "K" bit, so this encoding can be used for special instructions.
