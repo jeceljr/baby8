@@ -118,7 +118,7 @@ Optionally, the remaning modes can implement loading inputs 4 to 7 into K. There
 start of a subroutine so the PR (or JR) instruction can later return from that subroutine. A stack can be used to allow recursion.
 
 In the case of memory writes, the "K" bit only makes the processor assert the IOWR pin instead of the MEMWR pin. This makes it easy to add output ports without having to decode many address
-lines.
+lines. The assembly syntax is "SAI" or "OUT" in place of "ARM" or "ST".
 
 ### Exact timing
 
