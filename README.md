@@ -68,6 +68,9 @@ At the assembly level, an extra "K" is shown as the leftmost argument of 3 in th
     E r10,K,r1
 ```
 
+The first instruction disable the saving of the result back into r6. It also sets a reminder for the following instruction to use K instead of its destination for the other
+operand.
+
 The second instruction produces the exact same binary as "E r10,r1" but since it does "r10 := K AND r1" instead of the usual "r10 := r10 AND r1" it is best to use the alternative
 syntax to make things clear to the reader. The operation of the two instructions is "r10 := (r6 + r7) AND r1".
 
@@ -81,7 +84,7 @@ The memory access instructions have a very similar format to the previous one:
 
 The *dir* field indicates if the instruction is CAR or LD (for "CARrega or "LoaD") if it is a 0 and ARM or ST (for "ARMazena" or "STore") if it is a 1. The address is formed by the contents of
 the two indicated registers. In the case of a write to memory, the data is the result of the previous instruction (the "K" register). In the csae of a read from memory, the data will
-only arrive in time for the following instruction and it will be used as an operand in places of the destination.
+only arrive in time for the following instruction and it will be used as an operand in place of the destination. This is similar to an instruction after a cascade.
 
 The mode bits will indicate an operation on the low register and will appear in the assembly as the following arguments:
 
