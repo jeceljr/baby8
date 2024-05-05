@@ -94,10 +94,39 @@ The mode bits will indicate an operation on the low register and will appear in 
 - 110: rH,--rL (pre decrement)
 - 111: rH,rL (normal address)
 
-Four different modes indicate normal addressing, but we only need one of them. Note that the increments and decrements are 8 bit only and so might give the wrong result if there is a carry
+Note that the increments and decrements are 8 bit only and so might give the wrong result if there is a carry
 or borrow that is supposed to affect rH. The case of post operations it is not so bad since this can be detected and corrected after the memory access. But for pre operations the wrong
 address will be used, so these modes have a more limited use.
 
+Four different modes indicate normal addressing, but we only need one of them. So we will redefine modes 011 and 111 to actually load the address into the PC and the memory access will
+be disabled. The syntax for that is "PR rH,rL" (for "Pula para Registradores") or "JR rH, rL" (for "Jump to Registers").
+
 ### Special loads
 
-The memory instruction are not to be used with the "K" bit, so this encoding can be used for special instructions.
+The memory instruction are not to be used with the "K" bit, so this encoding can be used for special instructions. In the case if reads the mode will indicate what should be loaded into
+the K register instead of the result:
+
+- 000: K LinkL (load the low 7 bits of Link times 2 into K)
+- 001: K LinkH (load the high 7 bits of Link into K)
+- 010: K #n (load the 8 bit constant represented by the high and low fields into K)
+- 011: K in3 (load input 3 into K)
+
+Optionally, the remaning modes can implement loading inputs 4 to 7 into K. There never are inputs 0 to 2. Note that the first two must be used to store the Link register somewhere at the
+start of a subroutine so the PR (or JR) instruction can later return from that subroutine. A stack can be used to allow recursion.
+
+In the case of memory writes, the "K" bit only makes the processor assert the IOWR pin instead of the MEMWR pin. This makes it easy to add output ports without having to decode many address
+lines.
+
+### Exact timing
+
+Having two cascade instructions in a row is not very useful, so this will be used to implement a simpler timer "for free". More sophisticated timing needs will require extra hardware connected
+to the I/O ports, but a sequence like>
+
+```
+    K #45
+    SUB K,r1,r3
+```
+
+Will stop fetching new instructions and will do the subtraction over and over until the result is 0. The value of r1 is completely ignored due to the previous instruction also being a cascade,
+so the value of r3 is getting subtracted from the current value of K. Supposing that r3 is initialized to 1, these two instructions will take exactly 46 clock cycles to execute. Most pairs
+of cascade instructions do not produce interesting results, though a special load could be used to wait for a zero on a given input port.
