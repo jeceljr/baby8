@@ -1,6 +1,7 @@
 	; this is the famous Sieve of Eratosthenes benchmark originally
 	; published in Basic in Byte magazine translated here to Baby8
-	; assembly language by Jecel Assumpcao Jr in October 2023
+	; assembly language by Jecel Assumpcao Jr in October 2023 and
+        ; rewritten in the new assembly in May 2024
 
 	; for reference, the original Basic program:
 	; 1 SIZE = 8190
@@ -25,30 +26,51 @@
 	; to make the program prettier, let us have a FOR loop
 	; step is always 1 and both start and end are constants
 
+        .macro FOR rh, rl, start, end, lstart, lend
+	    K #\start&255   ; low 8 bits
+            MOV \rl,\rl
+	    K #\start>>8    ; high 8 bits
+            MOV \rh,\rh
+	    .equ \lstart, .    ; remember where the loop starts
+            MOV \rh,\rh ?Z
+	    PUG 0f
+            K #\end>>8      ; first compare high 8 bits
+	    SUB r0,K,\rh ?C  ; we have already checked that lh is not zero
+            PUG \lend        ; we have reached the limit
+0:
+            MOV \rl,\rl ?Z
+	    PUG 1f
+            K #\end&255     ; compare low 8 bits
+	    SUB r0,K,\rl ?C
+            PUG \lend
+1:
+	.endm
 
-	>>>> sieve    ; start of zero page is first instruction
-	size: 8190
-	true: 1
-	false: 0
-	% 16 ; skip internal register addresses
-fip:
-	##0
-fp:
-	##flags    ; after the program in memory
-count:
-	##0
-prime:
-	##0
-i:
-	##0
-k:
-	##0
-tp:
-    ##0
-text1:
-	"Only 1 iteration\n", #0
-text2:
-	" PRIMES\n", #0
+        .macro NEXT rh, rl, lstart, lend
+	    INC \rl,\rl ?C
+            INC \rh,\rh
+	    PUG \lstart
+            .equ \lend, .  ; remember where the loop ends
+	.endm
+
+	.equ size, 8190
+	.equ true, 1
+	.equ false, 0
+ 
+	.data
+ 
+fip:    .word 0
+fp:     .word flags    ; after the program in memory
+count:  .word 0
+prime:  .word 0
+i:      .word 0
+k:      .word 0
+tp:     .word 0
+text1:  .asciz "Only 1 iteration\n"
+text2:  .asciz " PRIMES\n"
+flags:
+
+        .text
 
 sieve:
 	W = #text1&255
@@ -99,106 +121,70 @@ L18:
 	W = #text2&255
 	X = #text2>>8
 	>>>>$ printText
-halt:
-	>>>> halt
-
-outTerminal: 0   ; port 0
+halt:   PUG halt
 
 printText:
-	tp = X
-	(tp+1) = W  ; point to start of text
+	; r2,r3 hold the text address
+        K LinkH
+	MOV r10,r10
+        K LinkL
+	MOV r11,r11
 ptloop:
-	W = *tp++
-	Z ?
-		<<<<  ; nul is end of text
-	outTerminal = W
-	>>>>$ printChar
-	>>>> ptloop
+        CAR r2,r3++
+	MOV r0,r0 ?Z
+        PR r10,r11   ; nul is end of text
+	MOV K,r0,r0
+	SAI r10,r11  ; there is only one port, so the address doesn't matter
+	PUG ptloop
 	
-	\convBase factor gen [
-		W = 0   ; count is resulting decimal digit
-moreDigits/gen:
+	.macro convBase factor 
+		OUX r0,r0   ; count is resulting decimal digit
+0:
 		Y = (tp+1)
 		Y -= #factor>>8
 		< ?
-			>>>> endConv/gen
+	        PUG 2f
 		(tp+1) = Y
 		!Z ?
-			>>>> subConv/gen
+	        PUG 1f
 		Y = tp
 		Y -= #factor&255
 		< ?
-			>>>> endConv/gen
-subConv/gen:
+		PUG 2f
+1:
 		tp -= #factor&255
-		W += #1
-		>>>> moreDigits/gen
-endConv/gen:
-	]
-
+		INC r0,r0
+		PUG 0b
+2:
+	.endm
+ 
 printNum:
-	tp = W
-	(tp+1) = X
-	convBase 10_000 .
-	W += #F'30   ; digit to ASCII
-	outTerminal = W
-	convBase 1000 .
-	W += #F'30
-	outTerminal = W
-	convBase 100 .
-	W += #F'30
-	outTerminal = W
-	convBase 10 .
-	W += #F'30
-	outTerminal = W
-	W = tp
-	W += #F'30
-	outTerminal = W
-	<<<<
-	
-flags:
-	%.+size+1
-endMemory:
-
-	\FOR var start end body gen [
-		var = #start&255   ; low 8 bits
-		var+1 = #start>>8  ; high 8 bits
-		>>>> for/gen
-for/gen:
-		Y = (var+1)
-		Y -= end>>8     ; compare high bits
-		> ?
-			>>>> endfor/gen
-		!Z ?
-			>>>> mainfor/gen
-		Y = var
-		Y -= end&255    ; compare low bits if high bits were equal
-		> ?
-			>>>> endfor/gen
-mainfor/gen:
-		body
-		var += #1;
-		!Z ?
-			>>>> for/gen
-		(var+1) += #1   ; low byte turned zero, increment high byte
-		>>>> for/gen
-endfor/gen:
-	]
-
-	\add16 za zb [
-		za += zb
-		C ?
-			(za+1) += #1   ; carry to high byte
-		(za+1) += (zb+1)
-	]
-
-	\mov16 za zb [
-		za = zb
-		(za+1) = (zb+1)
-	]
-
-	\setFP var [
-		mov16 fip fp     ; start of array
-		add16 fip var    ; fip now points to element
-	]
-
+        K LinkH
+	MOV r10,r10
+        K LinkL
+	MOV r11,r11
+	MOV r2,r4
+        MOV r3,r5
+	convBase 10000
+	K #0x30   ; digit to ASCII
+        SOM r0,K,r0
+	SAI r10,r11
+	MOV r2,r4
+        MOV r3,r5
+	convBase 1000
+	K #0x30   ; digit to ASCII
+        SOM r0,K,r0
+	SAI r10,r11
+	MOV r2,r4
+        MOV r3,r5
+	convBase 100
+	K #0x30   ; digit to ASCII
+        SOM r0,K,r0
+	SAI r10,r11
+	MOV r2,r4
+        MOV r3,r5
+	convBase 10
+	K #0x30   ; digit to ASCII
+        SOM r0,K,r0
+	SAI r10,r11
+        PR r10,r11	
